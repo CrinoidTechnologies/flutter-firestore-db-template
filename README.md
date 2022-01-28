@@ -9,12 +9,12 @@
 ***
 # Firebase DB Template
   This is a template project which serves the purpose of firestore database management, state management, route management, localisation management & app theme management.
-  Adding, updating & deleting of the entries from firestore database is implemented in this template with the help of firebase dependencies and crud firestore data source and repository impl classes.
+  Fetching, Adding, updating & deleting of the entries from firestore database is implemented in this template with the help of firebase dependencies and crud firestore data source and repository impl classes.
   State management, route management & app theme management is also implemented with the use of "GetX" library.
   State management is performed with the help of "GetX controllers" along with some core classes which handles lots of basic functionalities like search, filters, pagination etc.
   Route management is performed with the help of "Bindings".
   App theme management is performed with the use of controllers and "GetX" functions.
-  Localisation with the support of two languages "EN" & "ES" is also implemented in this template.
+  Localisation with the support of two languages "EN" & "ES" is also implemented in this template with the help of flutter_intl & GetX controllers.
 
   Following are some modules included in this project.
 
@@ -25,14 +25,11 @@
 ### Screenshots
 ***
 
-  #### OnBoarding Page
-  ![OnBoarding Page](/screenshots/onboarding.png)
+ #### Light Mode
 
-  #### Intro Page
-  ![Intro Page](/screenshots/intro.png)
-
-  #### Login Page
-  ![Login Page](/screenshots/login.png)
+ | Splash page              | Grocery list page           | Settings page              |
+ | -----------              | -----------------           | -------------              |
+ | (/screenshots/splash.png)| (/screenshots/groceries.png)| (/screenshots/settings.png)|
 
 
 ### Showcase
