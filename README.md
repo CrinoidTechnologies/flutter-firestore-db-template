@@ -39,6 +39,12 @@
  | ![](/screenshots/splash_drk.png)| ![](/screenshots/groceries_drk.png)| ![](/screenshots/settings_drk.png)| ![](/screenshots/add_groceries_drk.png)|
 
 
+ #### Spanish language (ES)
+
+ | Grocery list page                 | Settings page                    | Add Grocery popUp                     |
+ | -----------------                 | -------------                    | -------------                         |
+ | ![](/screenshots/groceries_es.png)| ![](/screenshots/settings_es.png)| ![](/screenshots/add_groceries_es.png)|
+
 ### Showcase
 ***
 
