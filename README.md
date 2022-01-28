@@ -27,9 +27,16 @@
 
  #### Light Mode
 
- | Splash page                 | Grocery list page              | Settings page                 |
- | -----------                 | -----------------              | -------------                 |
- | ![](/screenshots/splash.png)| ![](/screenshots/groceries.png)| ![](/screenshots/settings.png)|
+ | Splash page                 | Grocery list page              | Settings page                 | Add Grocery popUp                  |
+ | -----------                 | -----------------              | -------------                 | -------------                      |
+ | ![](/screenshots/splash.png)| ![](/screenshots/groceries.png)| ![](/screenshots/settings.png)| ![](/screenshots/add_groceries.png)|
+
+
+ #### Dark Mode
+
+ | Splash page                     | Grocery list page                  | Settings page                     | Add Grocery popUp                      |
+ | -----------                     | -----------------                  | -------------                     | -------------                          |
+ | ![](/screenshots/splash_drk.png)| ![](/screenshots/groceries_drk.png)| ![](/screenshots/settings_drk.png)| ![](/screenshots/add_groceries_drk.png)|
 
 
 ### Showcase
