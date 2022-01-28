@@ -27,9 +27,9 @@
 
  #### Light Mode
 
- | Splash page              | Grocery list page           | Settings page              |
- | -----------              | -----------------           | -------------              |
- | (/screenshots/splash.png)| (/screenshots/groceries.png)| (/screenshots/settings.png)|
+ | Splash page                 | Grocery list page              | Settings page                 |
+ | -----------                 | -----------------              | -------------                 |
+ | ![](/screenshots/splash.png)| ![](/screenshots/groceries.png)| ![](/screenshots/settings.png)|
 
 
 ### Showcase
