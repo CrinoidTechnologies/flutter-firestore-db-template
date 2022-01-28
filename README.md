@@ -1,9 +1,9 @@
 ## Table of Contents
 1. [General Info](#general-info)
-2. [Screenshots](#app-screenshots)
-3. [Showcase](#tech-showcase)
+2. [Screenshots](#screenshots)
+3. [Showcase](#showcase)
 4. [Technologies](#technologies)
-5. [GIFs](#app-gifs)
+5. [GIFs](#gifs)
 
 ### General Info
 ***
@@ -50,12 +50,13 @@
 
   This project is build to Showcase following things implemented in this project.
 
-  1. Transition animations.
-  2. Unit test cases.
-  3. Integration test cases.
-  4. Basic code structure.
-  5. Localisation.
-  6. App Theme management.(Light/Dark Mode).
+  1. Firestore database management.
+  2. State management using GetX.
+  3. Route management using GetX.
+  4. Advance code structure.
+  5. Firestore datastore CRUD impl.
+  6. Localisation.
+  7. App Theme management using GetX.
 
 
 ### Technologies
@@ -63,27 +64,63 @@
 
    Following technologies are used in this project.
 
-   1. [intl] (https://pub.dev/packages/intl) : version ^0.17.0
-   2. [intl_utils] (https://pub.dev/packages/intl_utils) : version ^2.6.0
-   3. [integration_test] (flutter sdk)
-   4. [flutter_test] (flutter sdk)
+   #### core packages
+
+   1. [dartz] (https://pub.dev/packages/dartz)
+   2. [equatable] (https://pub.dev/packages/equatable)
+
+   #### shared dependency
+
+   1. [get_storage] (https://pub.dev/packages/get_storage)
+   2. [logger] (https://pub.dev/packages/logger)
+
+   #### app dependency
+
+   1. [intl] (https://pub.dev/packages/intl)
+   2. [intl_utils] (https://pub.dev/packages/intl_utils)
+   3. [get] (flutter sdk)
+   4. [get_it] (flutter sdk)
    5. [flutter_localizations] (flutter sdk)
-   6. [cupertino_icons] (https://pub.dev/packages/cupertino_icons) : version ^1.0.4
-   7. [font_awesome_flutter] (https://pub.dev/packages/font_awesome_flutter) : version ^9.2.0
-   8. [flutter_rating_bar] (https://pub.dev/packages/flutter_rating_bar) : version ^4.0.0
-   9. [smooth_page_indicator] (https://pub.dev/packages/smooth_page_indicator) : version ^1.0.0+2
+   6. [cupertino_icons] (https://pub.dev/packages/cupertino_icons)
+   7. [persistent_bottom_nav_bar] (https://pub.dev/packages/persistent_bottom_nav_barr)
+   8. [fluttertoast] (https://pub.dev/packages/fluttertoast)
+   9. [sized_context] (https://pub.dev/packages/sized_context)
+   10.[time] (https://pub.dev/packages/time)
+   11.[timeago] (https://pub.dev/packages/timeago)
+   12.[connectivity] (https://pub.dev/packages/connectivity)
+
+   #### firebase dependency
+
+   1. [firebase_core] (https://pub.dev/packages/firebase_core)
+   2. [firebase_storage] (https://pub.dev/packages/firebase_storage)
+   3. [firebase_auth] (https://pub.dev/packages/firebase_auth)
+   4. [cloud_firestore] (https://pub.dev/packages/cloud_firestore)
+   5. [cloud_functions] (https://pub.dev/packages/cloud_functions)
 
 
 ### GIFs
 ***
 
-   #### Sample for Integration testing of signup module.
+   #### Sample for adding data to firestore DB.
 
-   ![Integration Testing](/screenshots/integration_test.gif)
+   ![Adding item to FB Database](/screenshots/add_data_db.gif)
 
-   #### Sample for app transition animations.
+   #### Sample for changing app theme mode.
 
-   ![Transition Animations](/screenshots/transitions.gif)
+   ![App theme change](/screenshots/app_mode_change.gif)
+
+   #### Sample for deleting data from firestore DB.
+
+   ![Deleting item from FB Database](/screenshots/delete_data.gif)
+
+   #### Sample for changing app language.
+
+   ![App language change](/screenshots/language_change.gif)
+
+   #### Sample for search implemented in app.
+
+   ![Searching items](/screenshots/search.gif)
+
 
 
 
