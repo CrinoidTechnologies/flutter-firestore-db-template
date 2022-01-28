@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:grocery_template/app/modules/grocery/presentation/pages/grocery_list_page.dart';
+import 'package:grocery_template/app/modules/settings/presentation/pages/settings_page.dart';
 import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
+import 'package:grocery_template/app/ui/controllers/theme_controller.dart';
 import 'package:grocery_template/generated/l10n.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
@@ -22,6 +24,12 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Get.find<ThemeController>().setThemeData(context);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return PersistentTabView(
       context,
@@ -32,7 +40,7 @@ class _DashboardPageState extends State<DashboardPage> {
       backgroundColor: ColorHelper.lightColor,
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
-      stateManagement: true,
+      stateManagement: false,
       hideNavigationBarWhenKeyboardShows: true,
       decoration: NavBarDecoration(
         borderRadius: BorderRadius.circular(10.0),
@@ -58,12 +66,7 @@ class _DashboardPageState extends State<DashboardPage> {
   List<Widget> _buildScreens() {
     return [
       const GroceryListPage(),
-      Center(
-        child: Text(
-          'Coming Soon',
-          style: AppTextStyles.captionBodyLightColor,
-        ),
-      ),
+      const SettingsPage(),
     ];
   }
 
