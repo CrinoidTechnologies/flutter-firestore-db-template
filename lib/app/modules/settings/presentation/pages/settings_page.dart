@@ -32,6 +32,11 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ),
           ),
+          VSpace(Insets.m),
+          SettingRowWidget(
+            title: S.of(context).changeLanguage,
+            suffix: const LanguageChangeButton(),
+          ),
         ],
       ),
     );
