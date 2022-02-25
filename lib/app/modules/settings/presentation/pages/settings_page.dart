@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grocery_template/_core/ui/spacing.dart';
-import 'package:grocery_template/app/extra/ui/components/language_change_button.dart';
 import 'package:grocery_template/app/modules/settings/presentation/widgets/setting_row_widget.dart';
+import 'package:grocery_template/app/ui/components/language_change_button.dart';
 import 'package:grocery_template/app/ui/controllers/theme_controller.dart';
 import 'package:grocery_template/app/ui/icon_helper.dart';
 import 'package:grocery_template/app/ui/styles.dart';
@@ -27,7 +27,7 @@ class _SettingsPageState extends State<SettingsPage> {
             title: S.of(context).changeAppTheme,
             suffix: GetX<ThemeController>(
               builder: (_c) => clickableIconButton(
-                ThemeIndicatorIcons[_c.currentThemeMode.value?.index ?? 0],
+                themeIndicatorIcons[_c.currentThemeMode.value?.index ?? 0],
                 onPress: () => _c.toggleTheme(),
               ),
             ),

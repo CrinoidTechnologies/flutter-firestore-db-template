@@ -5,7 +5,7 @@ import 'package:grocery_template/app/ui/color_helper.dart';
 import 'package:grocery_template/app/ui/icon_helper.dart';
 import 'package:grocery_template/app/ui/styles.dart';
 import 'package:grocery_template/app/ui/text_styles.dart';
-import 'package:grocery_template/app/widgets/genric_button_widget.dart';
+import 'package:grocery_template/app/widgets/app_button_widget.dart';
 import 'package:grocery_template/generated/l10n.dart';
 
 void pickDate(
@@ -32,7 +32,7 @@ void pickTime(
   final validDate = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.fromDateTime(initialTime ?? DateTime.now()));
-  if (validDate != null && callBack != null)
+  if (validDate != null && callBack != null) {
     callBack(DateTime.utc(
       0,
       0,
@@ -40,6 +40,7 @@ void pickTime(
       validDate.hour,
       validDate.minute,
     ));
+  }
 }
 
 ///Will return null, if the pop-up is dismissed without any action
@@ -57,7 +58,7 @@ Future<bool?> showOkCancelPopUp(String title, String message) async {
 showCustomPopup(BuildContext context, Widget child,
     {bool? barrierDismissible}) {
   return showGeneralDialog(
-      transitionDuration: Duration(milliseconds: 200),
+      transitionDuration: const Duration(milliseconds: 200),
       context: context,
       pageBuilder: (_, __, ___) {
         return Dialog(
@@ -67,7 +68,8 @@ showCustomPopup(BuildContext context, Widget child,
       },
       transitionBuilder: (_, anim, __, child) {
         return SlideTransition(
-          position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(anim),
+          position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0))
+              .animate(anim),
           child: child,
         );
       },
@@ -99,7 +101,7 @@ class GenericPopupWidget extends StatelessWidget {
       ),
       actionsPadding: EdgeInsets.all(Insets.m),
       actions: [
-        GenericButtonWidget(
+        AppButtonWidget(
           label: S.of(context).cancel,
           bgColor: ColorHelper.participantFormBackBtnColor,
           labelColor: ColorHelper.darkOrangeColor,
@@ -111,7 +113,7 @@ class GenericPopupWidget extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(top: Insets.m),
-          child: GenericButtonWidget(
+          child: AppButtonWidget(
             label: S.of(context).ok,
             bgColor: ColorHelper.participantFormDarkOrangeColor,
             labelColor: ColorHelper.fixedLightColor,

@@ -10,7 +10,7 @@ class AppToolTip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tooltip(
-      waitDuration: Duration(milliseconds: 500),
+      waitDuration: const Duration(milliseconds: 500),
       message: message,
       child: child,
     );

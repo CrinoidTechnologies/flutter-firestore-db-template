@@ -12,8 +12,8 @@ class ActionButtonsWidget extends StatelessWidget {
   const ActionButtonsWidget(
       {Key? key,
       required this.onAction,
-      this.showEditOption= true,
-      this.showDeleteOption= false})
+      this.showEditOption = true,
+      this.showDeleteOption = false})
       : super(key: key);
 
   @override

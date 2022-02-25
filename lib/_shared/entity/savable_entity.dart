@@ -1,22 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:grocery_template/_core/entity_crud/data/read_params.dart';
+import 'package:grocery_template/_shared/entity/id_title_shared_entity.dart';
+import 'package:grocery_template/_shared/extra/shared_fields.dart';
 import 'package:grocery_template/_shared/utils/date_utils.dart';
 import 'package:grocery_template/app/extra/app_enum.dart';
-import 'package:grocery_template/_shared/entity/id_title_shared_entity.dart';
-
-
-@Deprecated('use fieldSnoId instead')
-const String fieldCtmaId = 'ctma_id';
-const String fieldSnoId = 'sNo';
-@Deprecated('use metaFieldCreatedOn, but might cause issue with old entries')
-const fieldCreatedOn = 'created_on';
-@Deprecated('use metaFieldUpdatedOn, but might cause issue with old entries')
-const fieldUpdatedOn = 'updated_on';
-const fieldStatus = 'status';
-const metaFieldCreated = '_c';
-const metaFieldCreatedOn = '_c.on';
-const metaFieldUpdated = '_u';
-const metaFieldUpdatedOn = '_u.on';
 
 class SavableEntity extends IdTitleSharedEntity with ICreateValidity {
   ///Set false if created_on, created_by, updated_on, updated_by fields should not be set
@@ -51,10 +38,8 @@ class SavableEntity extends IdTitleSharedEntity with ICreateValidity {
         _updatedOn = data[fieldUpdatedOn] != null
             ? (data[fieldUpdatedOn] as Timestamp).toDate()
             : null,
-        createMetaTags =
-            data[metaFieldCreated] != null ? data[metaFieldCreated] : null,
-        updateMetaTags =
-            data[metaFieldUpdated] != null ? data[metaFieldUpdated] : null,
+        createMetaTags = data[metaFieldCreated],
+        updateMetaTags = data[metaFieldUpdated],
         status = data[fieldStatus] == null
             ? EntityStatus.active
             : EntityStatus.values.firstWhere(
@@ -62,9 +47,11 @@ class SavableEntity extends IdTitleSharedEntity with ICreateValidity {
                 orElse: () => EntityStatus.active),
         super.fromMap(data, id: id);
 
-  bool get validToCreate => title.length > 0;
+  @override
+  bool get validToCreate => title.isNotEmpty;
 
   //metaFieldUpdated will be automatically added by the data source before pushing to cloud
+  @override
   Map<String, dynamic> get toMap => {
         if (includeMetaFields) ...{
           //keeping the fieldCreatedOn in db entity because this field is being used for sorting in almost all places

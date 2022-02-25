@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:grocery_template/_shared/utils/logger_utls.dart';
+import 'package:grocery_template/_shared/utils/logger_utils.dart';
 import 'package:grocery_template/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
@@ -8,7 +8,7 @@ class LanguageController extends GetxController {
   final isProcessing = false.obs;
   final currentLanguage = ''.obs;
 
-  changeLocale(String _localeString) async {
+  void changeLocale(String _localeString) async {
     Locale _locale = Locale(_localeString);
     isProcessing.value = true;
     await S.load(_locale);

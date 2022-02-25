@@ -1,6 +1,8 @@
 import 'package:grocery_template/_core/response/i_list_response.dart';
+
 import '../read_params.dart';
 
+/// Abstract class for
 abstract class ICRUDDataSource<T> {
   final String rootPath;
 
@@ -12,7 +14,7 @@ abstract class ICRUDDataSource<T> {
 
   Future<T?> createUpdateItem(T item);
 
-  Future<void> updateItem(T item,{List<PathArgs>? pathArgs});
+  Future<void> updateItem(T item, {List<PathArgs>? pathArgs});
 
   Future<void> removeItem(String id);
 

@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:grocery_template/app/ui/routes/app_pages.dart';
 
 class SplashController extends GetxController {
-
-
   SplashController();
 
   get _pathParameters =>
@@ -21,7 +19,9 @@ class SplashController extends GetxController {
       print('_moveToNext $delay');
     }
     final allFutures = <Future>[];
-    if (delay != null) allFutures.add(Future.delayed(delay, () => const Right(null)));
+    if (delay != null) {
+      allFutures.add(Future.delayed(delay, () => const Right(null)));
+    }
     Get.offAllNamed(Routes.dashboard, parameters: _pathParameters);
   }
 }

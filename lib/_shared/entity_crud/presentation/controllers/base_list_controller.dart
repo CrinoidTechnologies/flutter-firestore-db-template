@@ -1,20 +1,21 @@
 import 'dart:async';
+
 import 'package:get/get.dart';
 import 'package:grocery_template/_core/entity_crud/data/read_params.dart';
 import 'package:grocery_template/_core/response/i_list_response.dart';
 import 'package:grocery_template/_core/status.dart';
 import 'package:grocery_template/_core/usecase/usecase.dart';
-import 'package:grocery_template/_core/utils/dialog_utils.dart';
 import 'package:grocery_template/_core/utils/string_utils.dart';
-import 'package:grocery_template/_core/utils/utils.dart';
 import 'package:grocery_template/_shared/entity/savable_entity.dart';
-import 'package:grocery_template/_shared/entity/shared_entity.dart';
+import 'package:grocery_template/_shared/entity/i_shared_entity.dart';
 import 'package:grocery_template/_shared/extra/shared_constants.dart';
-import 'package:grocery_template/_shared/utils/logger_utls.dart';
+import 'package:grocery_template/_shared/extra/shared_fields.dart';
+import 'package:grocery_template/_shared/utils/dialog_utils.dart';
+import 'package:grocery_template/_shared/utils/logger_utils.dart';
+import 'package:grocery_template/_shared/utils/toast_util.dart';
 import 'package:grocery_template/app/extra/app_enum.dart';
 import 'package:grocery_template/app/modules/dashboard/presentation/controllers/dashboard_controller.dart';
 import 'package:grocery_template/generated/l10n.dart';
-
 
 abstract class BaseListController<T extends SavableEntity>
     extends GetxController {
@@ -105,7 +106,7 @@ abstract class BaseListController<T extends SavableEntity>
         queryArgs: sourceFilter.toList(),
         whereInArgs: whereInFilter.value,
         limit: _currentItemsFetchLimit.value,
-        pathArgs: this.pathArgs.toList());
+        pathArgs: pathArgs.toList());
     logD('$this fetchItems .. ${readParams.toString()}');
 
     isFetching.value = fetchItemsFromSource(readParams);
@@ -168,10 +169,11 @@ abstract class BaseListController<T extends SavableEntity>
 
     int index =
         localSorter.indexWhere((element) => element.field == selectedSorter);
-    if (index > -1)
+    if (index > -1) {
       localSorter
         ..removeAt(index)
         ..insert(index, sourceSorter.first);
+    }
   }
 
   List<T> sortItems(List<T> items) {
@@ -195,7 +197,7 @@ abstract class BaseListController<T extends SavableEntity>
   /// Item selections..................
 
   bool get allSelected =>
-      selectedItems.length > 0 && selectedItems.length == localList.length;
+      selectedItems.isNotEmpty && selectedItems.length == localList.length;
 
   void updateListSelection() {
     if (allSelected) {
@@ -218,16 +220,16 @@ abstract class BaseListController<T extends SavableEntity>
   }
 
   void openItem(int position,
-      {DashboardContentAction action: DashboardContentAction.view}) {
+      {DashboardContentAction action = DashboardContentAction.view}) {
     Get.find<DashboardController>()
         .changePage(topPage: 0, data: localList[position], action: action);
   }
 
   ///This does not do hard delete, it will only change the entity status to EntityStatus.deleted
   Future<bool> deleteOrArchiveItem(
-      {T? entity, int? position, bool archiveItem: false}) async {
+      {T? entity, int? position, bool archiveItem = false}) async {
     assert(getEntityUpdateUseCase != null,
-        '${this.runtimeType.toString()} must override getEntityUpdateUseCase and provide appropriate instance');
+        '${runtimeType.toString()} must override getEntityUpdateUseCase and provide appropriate instance');
     assert(entity != null || position != null,
         'either one of entity or position should be non-null');
     final value = await showOkCancelPopUp(
@@ -257,7 +259,7 @@ abstract class BaseListController<T extends SavableEntity>
   Future<bool> reActivateItem(
       {T? entity, int? position, String? confirmationMsg}) async {
     assert(getEntityUpdateUseCase != null,
-        '${this.runtimeType.toString()} must override getEntityUpdateUseCase and provide appropriate instance');
+        '${runtimeType.toString()} must override getEntityUpdateUseCase and provide appropriate instance');
     assert(entity != null || position != null,
         'either one of entity or position should be non-null');
     final value = await showOkCancelPopUp(S.current.confirm,
@@ -277,5 +279,7 @@ abstract class BaseListController<T extends SavableEntity>
   }
 
   ///Override this getter to provide a use case for updating the entity, will be used in case updating status and other cases
-  SaveUseCase? get getEntityUpdateUseCase {}
+  SaveUseCase? get getEntityUpdateUseCase {
+    return null;
+  }
 }

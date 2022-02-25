@@ -1,9 +1,11 @@
 import 'dart:typed_data';
+
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:grocery_template/_core/entity_crud/data/sources/i_crud_file_source.dart';
 import 'package:grocery_template/_core/entity_crud/domain/repositories/i_crud_file_repository.dart';
 import 'package:grocery_template/_core/status.dart';
+
 class CrudFileRepository extends ICrudFileRepository {
   CrudFileRepository(ICrudFileSource dataSource) : super(dataSource);
 
@@ -12,7 +14,7 @@ class CrudFileRepository extends ICrudFileRepository {
       {List<String>? pathArgs, Map<String, String>? extraData}) async* {
     try {
       if (file == null) {
-        yield Left(Failure(message: 'Invalid file data'));
+        yield const Left(Failure(message: 'Invalid file data'));
       } else {
         yield* dataSource
             .uploadFile(file, fileName,

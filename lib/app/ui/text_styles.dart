@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grocery_template/app/ui/themes.dart';
 
 import 'color_helper.dart';
 
@@ -10,25 +9,6 @@ import 'color_helper.dart';
 /// `newStyle = AppTextStyles.body1.copyWith(lineHeight: 2, color: Colors.red)`
 class AppTextStyles {
   /// other styles
-
-  // static const TextStyle lato = TextStyle(
-  //   fontFamily: Fonts.lato,
-  //   fontWeight: FontWeight.w400,
-  //   letterSpacing: 0,
-  //   height: 1,
-  //   fontFamilyFallback: [
-  //     Fonts.emoji,
-  //   ],
-  // );
-  //
-  // static const TextStyle quicksand = TextStyle(
-  //   fontFamily: Fonts.quicksand,
-  //   fontWeight: FontWeight.w400,
-  //   fontFamilyFallback: [
-  //     Fonts.emoji,
-  //   ],
-  // );
-  //
 
   static TextStyle headline4Style(BuildContext context,
           {Color? color, FontWeight? weight, double letterSpacing = 0}) =>
@@ -48,7 +28,7 @@ class AppTextStyles {
 
   static TextStyle subTitle1Style(BuildContext context,
           {Color? color,
-          FontWeight weight: FontWeight.normal,
+          FontWeight weight = FontWeight.normal,
           double letterSpacing = 0}) =>
       Theme.of(context).textTheme.subtitle1!.copyWith(
           color: color ?? Theme.of(context).textTheme.subtitle1!.color,
@@ -92,40 +72,16 @@ class AppTextStyles {
           letterSpacing: letterSpacing,
           fontSize: fontSize ?? Theme.of(context).textTheme.caption!.fontSize);
 
-  static TextStyle get body15MediumLightColor => Get.find<ThemeData>()
-      .textTheme
-      .bodyText1!
-      .copyWith(color: ColorHelper.bodyLightColor);
+  static TextStyle caption(BuildContext context) =>
+      Theme.of(context).textTheme.caption!;
 
-  static TextStyle get body12MediumHeadingColor => Get.find<ThemeData>()
-      .textTheme
-      .bodyText1!
-      .copyWith(color: ColorHelper.headingColor, fontSize: 12);
+  static TextStyle subTitle1(BuildContext context) =>
+      Theme.of(context).textTheme.subtitle1!;
 
   static TextStyle get body12MediumGreyWeakColor => Get.find<ThemeData>()
       .textTheme
       .bodyText1!
       .copyWith(color: ColorHelper.greyWeakColor, fontSize: 12);
-
-  static TextStyle get headline4MediumDarkColor => Get.find<ThemeData>()
-      .textTheme
-      .headline4!
-      .copyWith(color: ColorHelper.darkColor, fontWeight: FontWeight.w500);
-
-  static TextStyle get headline6LightColor => Get.find<ThemeData>()
-      .textTheme
-      .headline6!
-      .copyWith(color: ColorHelper.lightColor);
-
-  static TextStyle get headline6BodyDarkColor => Get.find<ThemeData>()
-      .textTheme
-      .headline6!
-      .copyWith(color: ColorHelper.bodyDarkColor);
-
-  static TextStyle get headline6DarkColor => Get.find<ThemeData>()
-      .textTheme
-      .headline6!
-      .copyWith(color: ColorHelper.darkColor);
 
   static TextStyle get headline4DarkColor => Get.find<ThemeData>()
       .textTheme
@@ -162,10 +118,6 @@ class AppTextStyles {
       .bodyText2!
       .copyWith(color: ColorHelper.accentColor, fontWeight: FontWeight.w500);
 
-  static TextStyle get bodyText2MediumBlue =>
-      Get.find<ThemeData>().textTheme.bodyText2!.copyWith(
-          color: ColorHelper.dashboardBlueBoxColor,
-          fontWeight: FontWeight.w500);
 
   static TextStyle get bodyText2PrimaryColor => Get.find<ThemeData>()
       .textTheme
@@ -192,10 +144,6 @@ class AppTextStyles {
       .caption!
       .copyWith(color: ColorHelper.successTextColor);
 
-  static TextStyle get captionDarkRedColor => Get.find<ThemeData>()
-      .textTheme
-      .caption!
-      .copyWith(color: ColorHelper.darkRedColor);
 
   static TextStyle bodyText1(BuildContext context) =>
       Theme.of(context).textTheme.bodyText1!.copyWith();
@@ -212,33 +160,11 @@ class AppTextStyles {
   static TextStyle bodyText2(BuildContext context) =>
       Theme.of(context).textTheme.bodyText2!.copyWith();
 
-  static TextStyle caption12(BuildContext context) =>
-      Theme.of(context).textTheme.caption!.copyWith(fontSize: 12);
-
-  static TextStyle caption12BodyLight(BuildContext context) => Theme.of(context)
-      .textTheme
-      .caption!
-      .copyWith(color: ColorHelper.bodyLightColor, fontSize: 12);
-
-  static TextStyle caption14Accent(BuildContext context) => Theme.of(context)
-      .textTheme
-      .caption!
-      .copyWith(color: ColorHelper.accentColor, fontSize: 14);
-
-  static TextStyle caption14(BuildContext context) =>
-      Theme.of(context).textTheme.caption!.copyWith(fontSize: 14);
-
   static TextStyle captionBodyDarkColor(BuildContext context) =>
       Theme.of(context)
           .textTheme
           .caption!
           .copyWith(color: ColorHelper.bodyDarkColor);
-
-  static TextStyle caption(BuildContext context) =>
-      Theme.of(context).textTheme.caption!;
-
-  static TextStyle subTitle1(BuildContext context) =>
-      Theme.of(context).textTheme.subtitle1!;
 
   static TextStyle get bodyRegular14HeadingColor =>
       Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
@@ -264,32 +190,11 @@ class AppTextStyles {
           color: ColorHelper.greyColor,
           fontWeight: FontWeight.w400);
 
-  static TextStyle get text12NormalDarkColor =>
-      Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
-          fontSize: 12,
-          color: ColorHelper.darkColor,
-          fontWeight: FontWeight.w400);
-
-  static TextStyle get text12NormalBluishGreyColor =>
-      Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
-          fontSize: 12,
-          color: ColorHelper.bluishGreyColor,
-          fontWeight: FontWeight.w400);
-
   static TextStyle get text15NormalDarkColor =>
       Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
           fontSize: 15,
           color: ColorHelper.darkColor,
           fontWeight: FontWeight.w400);
-
-  static TextStyle get text15NormalPrimaryColor =>
-      text15NormalDarkColor.copyWith(color: ColorHelper.primaryColor);
-
-  static TextStyle get text15NormalGreyColor =>
-      text15NormalDarkColor.copyWith(color: ColorHelper.greyColor);
-
-  static TextStyle get text15NormalGreyWeakColor =>
-      text15NormalDarkColor.copyWith(color: ColorHelper.greyWeakColor);
 
   static TextStyle get text15NormalDarkOrangeColor =>
       text15NormalDarkColor.copyWith(color: ColorHelper.darkOrangeColor);
@@ -300,76 +205,6 @@ class AppTextStyles {
           color: ColorHelper.bluishGreyColor,
           fontWeight: FontWeight.w400);
 
-  static TextStyle get text15MediumBluishGreyColor =>
-      text15NormalBluishGreyColor.copyWith(fontWeight: FontWeight.w500);
-
   static TextStyle get text15MediumDarkColor => text15NormalDarkColor.copyWith(
       fontWeight: FontWeight.w500, color: ColorHelper.darkColor);
-
-  static TextStyle get text15MediumDarkOrangeColor =>
-      Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
-          fontSize: 15,
-          color: ColorHelper.darkOrangeColor,
-          fontWeight: FontWeight.w500);
-
-  static TextStyle get text18NormalDarkColor =>
-      Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
-          fontSize: 18,
-          color: ColorHelper.darkColor,
-          fontWeight: FontWeight.w400);
-
-  static TextStyle get text18NormalBluishGreyColor =>
-      Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
-          fontSize: 18,
-          color: ColorHelper.bluishGreyColor,
-          fontWeight: FontWeight.w400);
-
-  static TextStyle get text18NormalPrimaryColor =>
-      Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
-          fontSize: 18,
-          color: ColorHelper.primaryDarkColor,
-          fontWeight: FontWeight.w400);
-
-  // TODO: Add or Remove this styles after design is ideal for dark and light theme
-  static TextStyle get bodyText1FixedLightColor => Get.find<AppTheme>().isDark
-      ? AppTextStyles.bodyText1DarkColor
-      : AppTextStyles.bodyText1LightColor;
-
-  static TextStyle get bodyText2FixedLightColor => Get.find<AppTheme>().isDark
-      ? AppTextStyles.bodyText1DarkColor
-      : AppTextStyles.bodyText1LightColor;
-
-  static TextStyle get forgotPasswordLabelStyle => Get.find<AppTheme>().isDark
-      ? AppTextStyles.bodyText2BodyDarkColor
-      : AppTextStyles.bodyText2PrimaryColor;
-
-// static TextStyle get t1 => quicksand.bold.size(FontSizes.s14).letterSpace(.7);
-//
-//
-// static TextStyle get h1 => lato.bold.size(FontSizes.s14);
-//
-//
-// static TextStyle get body1 => lato.size(FontSizes.s14);
-//
-// static TextStyle get body2 => lato.size(FontSizes.s12);
-//
-//
-// static TextStyle get callout =>
-//     quicksand.size(FontSizes.s14).letterSpace(1.75);
-//
-// static TextStyle get calloutFocus => callout.bold;
-//
-// static TextStyle get button =>
-//     quicksand.bold.size(FontSizes.s14).letterSpace(1.75);
-//
-// static TextStyle get buttonSelected =>
-//     quicksand.size(FontSizes.s14).letterSpace(1.75);
-//
-
-//
-// /// other styles
-// static TextStyle get textFieldLabel => lato.bold
-//     .textColor(Colors.grey.shade700)
-//     .size(FontSizes.s14)
-//     .letterSpace(.3);
 }

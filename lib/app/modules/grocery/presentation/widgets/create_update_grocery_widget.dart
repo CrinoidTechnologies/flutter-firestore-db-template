@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:grocery_template/_core/status.dart';
 import 'package:grocery_template/_core/ui/spacing.dart';
-import 'package:grocery_template/_core/utils/dialog_utils.dart';
-import 'package:grocery_template/_core/utils/utils.dart';
 import 'package:grocery_template/_shared/utils/date_utils.dart';
+import 'package:grocery_template/_shared/utils/dialog_utils.dart';
+import 'package:grocery_template/_shared/utils/toast_util.dart';
 import 'package:grocery_template/app/di/dependency_injection.dart';
 import 'package:grocery_template/app/modules/Grocery/domain/entities/grocery_entity.dart';
 import 'package:grocery_template/app/modules/grocery/domain/usecases/create_update_grocery_use_case.dart';
@@ -27,7 +27,7 @@ class CreateUpdateGroceryWidget extends StatefulWidget {
       this.onSave,
       this.onDelete,
       this.startEditing = true,
-      this.isAddNote: false,
+      this.isAddNote = false,
       required this.showEdit,
       required this.showDelete})
       : super(key: key);
@@ -89,13 +89,12 @@ class _CreateUpdateGroceryWidgetState extends State<CreateUpdateGroceryWidget> {
                 style: AppTextStyles.headline5Style(context,
                     color: ColorHelper.headingColor),
                 cursorColor: ColorHelper.participantFormDarkOrangeColor,
-                // onSaved: (value) => onSubmit!(value??''),
               ),
               VSpace(Insets.m),
               TextFormField(
                 readOnly: !isEditMode,
                 initialValue:
-                (entity.price ?? 0) != 0 ? entity.price.toString() : null,
+                    (entity.price ?? 0) != 0 ? entity.price.toString() : null,
                 onChanged: (v) {
                   entity.price = double.tryParse(v) ?? 0.0;
                 },
@@ -145,7 +144,7 @@ class _CreateUpdateGroceryWidgetState extends State<CreateUpdateGroceryWidget> {
                 ],
               ),
               VSpace(Insets.l),
-              Container(
+              SizedBox(
                 height: 100,
                 child: TextFormField(
                   readOnly: !isEditMode,
@@ -250,7 +249,7 @@ class _CreateUpdateGroceryWidgetState extends State<CreateUpdateGroceryWidget> {
     return true;
   }
 
-  Widget getButton({bool isSave: false}) {
+  Widget getButton({bool isSave = false}) {
     return Container(
       decoration: AppDecorations.borderGreyR16BgDecoration,
       child: Padding(

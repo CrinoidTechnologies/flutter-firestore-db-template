@@ -6,7 +6,6 @@ import 'package:grocery_template/_shared/entity_crud/domain/usecases/stream_enti
 
 import 'base_list_controller.dart';
 
-
 class StreamListController<T extends SavableEntity>
     extends BaseListController<T> {
   final StreamEntityListUseCase<T> _listUseCase;

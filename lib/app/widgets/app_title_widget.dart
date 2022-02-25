@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_template/app/ui/text_styles.dart';
 
-class GenericTitleWidget extends StatelessWidget {
+class AppTitleWidget extends StatelessWidget {
   final String title;
 
-  const GenericTitleWidget({Key? key, required this.title}) : super(key: key);
+  const AppTitleWidget({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

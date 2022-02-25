@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 /// makes data read operation synchronous
 
 class StorageUtil {
-  var _storage;
+  final _storage;
 
   StorageUtil(this._storage);
 
@@ -27,6 +27,7 @@ class StorageUtil {
   String? readString(dynamic key) {
     return _storage.read<String>(key.toString());
   }
+
   void remove(int key) {
     try {
       storage.remove(key.toString());
@@ -34,5 +35,6 @@ class StorageUtil {
       debugPrint(e.toString());
     }
   }
+
   get storage => _storage;
 }

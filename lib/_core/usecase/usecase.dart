@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import '../status.dart';
 
+import '../status.dart';
 
 /// It is Application-specific business rules
 /// Encapsulate all the usecases of the application
@@ -21,19 +21,6 @@ abstract class AutoSaveUseCase<Params> extends SaveUseCase<Params> {
   Either<Failure, String> generateAutoSaveId();
 }
 
-///Use this use case when we don't want to perform any data saving
-class DummyAutoSaveUseCase extends AutoSaveUseCase {
-  @override
-  call(params) => Future.value(Right(Success()));
-
-  @override
-  generateAutoSaveId() => Right('1234');
-}
-
 abstract class SyncUseCase<Type, Params> {
   Either<Failure, Type> call(Params params);
-}
-
-abstract class StreamUseCase<Type, Params> {
-  Stream<Either<Failure, Type>> call(Params params);
 }

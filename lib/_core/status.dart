@@ -4,7 +4,7 @@ abstract class Status extends Equatable {
   final String? message;
   final String? messageId;
 
-  Status({this.messageId, this.message}) : super();
+  const Status({this.messageId, this.message}) : super();
 
   @override
   List<Object?> get props => [messageId, message];
@@ -20,7 +20,7 @@ class ProgressStatus extends Status {
 
   int get percentageProgress => (progress * 100).toInt();
 
-  ProgressStatus(this.progress, {messageId, message})
+  const ProgressStatus(this.progress, {messageId, message})
       : super(message: message, messageId: messageId);
 
   @override
@@ -33,7 +33,8 @@ class ProgressStatus extends Status {
 }
 
 class Success extends Status {
-  Success({messageId, message}) : super(message: message, messageId: messageId);
+  const Success({messageId, message})
+      : super(message: message, messageId: messageId);
 }
 
 class Failure extends Status {
@@ -41,10 +42,9 @@ class Failure extends Status {
 
   final String? uID;
 
-  Failure({messageId, message, this.uID})
+  const Failure({messageId, message, this.uID})
       : super(message: message, messageId: messageId);
 
   Failure.fromException(Exception e)
       : this(messageId: null, message: e.toString());
-
 }

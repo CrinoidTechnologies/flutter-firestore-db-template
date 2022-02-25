@@ -10,8 +10,9 @@ abstract class ICrudFileSource {
   Stream<TaskSnapshot> uploadFile(Uint8List file, String fileName,
       {List<String>? pathArgs, Map<String, String>? extraData});
 
-  Future<String> getFile(String filePath,);
-
+  Future<String> getFile(
+    String filePath,
+  );
 
 //TODO add other CRUD operations
 }

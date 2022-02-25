@@ -2,11 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import '_core/controllers/app_version_controller.dart';
-import '_shared/utils/logger_utls.dart';
+import 'package:grocery_template/_shared/ui/controllers/app_version_controller.dart';
+
+import '_shared/utils/logger_utils.dart';
 import '_shared/utils/storage_util.dart';
 import 'app/di/dependency_injection.dart';
-import 'app/extra/controllers/language_controller.dart';
+import 'app/ui/controllers/language_controller.dart';
 import 'app/ui/controllers/theme_controller.dart';
 import 'app/ui/routes/app_pages.dart';
 import 'app/ui/styles.dart';

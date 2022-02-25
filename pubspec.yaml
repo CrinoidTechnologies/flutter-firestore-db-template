@@ -67,6 +67,10 @@ dev_dependencies:
   json_serializable:
   flutter_lints: ^1.0.0
 
+flutter_intl:
+  enabled: true
+  main_locale: en_US
+  
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -108,6 +112,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-flutter_intl:
-  enabled: true
-  main_locale: en_US

@@ -1,7 +1,5 @@
-import 'config/env_dev.dart';
-import 'config/env_production.dart';
-import 'config/env_staging.dart';
 import 'package:grocery_template/app/ui/routes/app_pages.dart';
+import 'package:grocery_template/config/env_dev.dart';
 
 abstract class Environment {
   final String secret = '';
@@ -11,9 +9,7 @@ abstract class Environment {
 
   final bool authGuardEnabled = true;
 
-  String get initialRoute => Routes.root + '?clientId=$ctmaClientId';
-  String ctmaClientId =
-      ''; //TODO this should be managed using controllers or provider
+  String get initialRoute => Routes.root;
 
   ///Used for testing purposes
   final String loginEmail = '';
@@ -22,6 +18,6 @@ abstract class Environment {
 
 class EnvironmentValue {
   static final Environment development = EnvDev();
-  static final Environment staging = EnvStaging();
-  static final Environment production = EnvProduction();
+// static final Environment staging = EnvStaging();
+// static final Environment production = EnvProduction();
 }

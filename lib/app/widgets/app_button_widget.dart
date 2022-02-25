@@ -3,7 +3,7 @@ import 'package:grocery_template/app/ui/color_helper.dart';
 import 'package:grocery_template/app/ui/styles.dart';
 import 'package:grocery_template/app/ui/text_styles.dart';
 
-class GenericButtonWidget extends StatelessWidget {
+class AppButtonWidget extends StatelessWidget {
   final String label;
   final Color? bgColor;
   final Color? labelColor;
@@ -15,7 +15,7 @@ class GenericButtonWidget extends StatelessWidget {
   final bool shrink;
   final EdgeInsetsGeometry? padding;
 
-  const GenericButtonWidget(
+  const AppButtonWidget(
       {Key? key,
       required this.label,
       this.bgColor,

@@ -4,6 +4,8 @@ import 'package:grocery_template/app/ui/color_helper.dart';
 import 'package:grocery_template/app/ui/styles.dart';
 
 class LoadingWidget extends StatelessWidget {
+  const LoadingWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -29,8 +31,7 @@ class LoadingWithTextWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           CircularProgressIndicator(
-            valueColor:
-                AlwaysStoppedAnimation<Color>(ColorHelper.accentColor),
+            valueColor: AlwaysStoppedAnimation<Color>(ColorHelper.accentColor),
           ),
           VSpace(Insets.s),
           Text(text)

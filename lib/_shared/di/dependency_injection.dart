@@ -5,8 +5,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:grocery_template/_core/di/dependency_injection.dart';
+import 'package:grocery_template/_shared/ui/controllers/app_version_controller.dart';
 import 'package:grocery_template/_shared/utils/firebase_utils.dart';
-import 'package:grocery_template/_shared/utils/logger_utls.dart';
+import 'package:grocery_template/_shared/utils/logger_utils.dart';
 import 'package:grocery_template/_shared/utils/storage_util.dart';
 import 'package:grocery_template/app/utils/app_storage_util.dart';
 import 'package:logger/logger.dart';
@@ -30,15 +31,18 @@ Future<void> initSharedServiceLocator() async {
 
   sharedSL.registerSingleton<FirebaseStorage>(FirebaseStorage.instance);
 
+  sharedSL.registerSingleton(AppVersionController());
+
   // ///Uuid - required for generating unique file names
   // sharedSL.registerSingleton<Uuid>(Uuid());
 
   /// Persistent storage
   var result = await GetStorage.init();
-  if (!result)
+  if (!result) {
     logE('Persistent storage is unable to initialize');
-  else
+  } else {
     logD('Persistent storage is initialized');
+  }
   sharedSL.registerSingleton<StorageUtil>(AppStorageUtil(GetStorage()));
 
   ///Authentication......................

@@ -1,6 +1,6 @@
 import 'package:connectivity/connectivity.dart';
 
-abstract class NetworkInfoI {
+abstract class INetworkInformation {
   Future<bool> isConnected();
 
   Future<ConnectivityResult> get connectivityResult;
@@ -8,10 +8,10 @@ abstract class NetworkInfoI {
   Stream<ConnectivityResult> get onConnectivityChanged;
 }
 
-class NetworkInfo implements NetworkInfoI {
+class NetworkInformation implements INetworkInformation {
   final Connectivity connectivity;
 
-  NetworkInfo({required this.connectivity});
+  NetworkInformation({required this.connectivity});
 
   @override
   Future<bool> isConnected() async {

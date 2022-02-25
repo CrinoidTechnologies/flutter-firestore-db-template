@@ -6,6 +6,11 @@
 5. [GIFs](#gifs)
 
 ### General Info
+
+# Running this project
+
+1. pub global run intl_utils:generate
+
 ***
 # Firebase DB Template
   This is a template project which serves the purpose of firestore database management, state management, route management, localisation management & app theme management.

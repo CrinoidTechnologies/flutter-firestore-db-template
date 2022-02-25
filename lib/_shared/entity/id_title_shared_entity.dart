@@ -1,9 +1,7 @@
 import 'package:grocery_template/_core/entity_crud/data/read_params.dart';
 import 'package:grocery_template/_core/utils/string_utils.dart';
-import 'package:grocery_template/_shared/entity/shared_entity.dart';
-
-const String fieldId = 'id';
-const String fieldTitle = 'title';
+import 'package:grocery_template/_shared/entity/i_shared_entity.dart';
+import 'package:grocery_template/_shared/extra/shared_fields.dart';
 
 class IdTitleSharedEntity extends ISharedEntity {
   ///Keep id empty, if you want this item to be created (not updated)

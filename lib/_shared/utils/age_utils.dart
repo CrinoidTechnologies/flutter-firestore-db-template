@@ -1,5 +1,3 @@
-library age;
-
 /// AgeDuration class
 
 class AgeDuration {
@@ -9,6 +7,7 @@ class AgeDuration {
 
   AgeDuration({this.days = 0, this.months = 0, this.years = 0});
 
+  @override
   String toString() {
     return 'Years: $years, Months: $months, Days: $days';
   }
@@ -48,7 +47,8 @@ class Age {
       required DateTime toDate,
       bool includeToDate = false}) {
     // Check if toDate to be included in the calculation
-    DateTime endDate = (includeToDate) ? toDate.add(Duration(days: 1)) : toDate;
+    DateTime endDate =
+        (includeToDate) ? toDate.add(const Duration(days: 1)) : toDate;
 
     int years = endDate.year - fromDate.year;
     int months = 0;

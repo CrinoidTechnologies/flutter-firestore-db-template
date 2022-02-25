@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:grocery_template/_shared/di/dependency_injection.dart';
-import 'package:grocery_template/app/extra/controllers/language_controller.dart';
+import 'package:grocery_template/app/ui/controllers/language_controller.dart';
 import 'package:grocery_template/app/extra/middlewares/language_detector_middle_ware.dart';
 import 'package:grocery_template/app/modules/Grocery/data/sources/grocery_firestore_data_source.dart';
 import 'package:grocery_template/app/modules/Grocery/domain/repositories/grocery_repository.dart';

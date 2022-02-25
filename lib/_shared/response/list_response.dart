@@ -1,4 +1,3 @@
-
 import 'package:grocery_template/_core/response/i_list_response.dart';
 
 class ListResponse<T> implements IListResponse<T> {
