@@ -3,12 +3,14 @@ import 'package:grocery_template/_core/entity_crud/data/read_params.dart';
 import 'package:grocery_template/_core/entity_crud/domain/repositories/i_crud_entity_data_repository.dart';
 import 'package:grocery_template/_core/response/i_list_response.dart';
 import 'package:grocery_template/_core/status.dart';
-import 'package:grocery_template/_shared/entity/shared_entity.dart';
-import 'package:grocery_template/_shared/utils/logger_utls.dart';
+import 'package:grocery_template/_shared/entity/i_shared_entity.dart';
+import 'package:grocery_template/_shared/utils/logger_utils.dart';
+
 class CRUDEntityDataRepository<T extends ISharedEntity>
     extends ICRUDEntityDataRepository<T> {
   CRUDEntityDataRepository(dataSource) : super(dataSource);
 
+  @override
   Either<Failure, String> createItemId() {
     try {
       final result = dataSource.createItemId();
@@ -18,6 +20,7 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
     }
   }
 
+  @override
   Future<Either<Failure, T?>> createUpdateItem(T item) async {
     try {
       final result = await dataSource.createUpdateItem(item);
@@ -27,6 +30,7 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
     }
   }
 
+  @override
   Future<Either<Failure, void>> updateItem(T item,
       {List<PathArgs>? pathArgs}) async {
     try {
@@ -37,6 +41,7 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
     }
   }
 
+  @override
   Future<Either<Failure, void>> removeItem(String id) async {
     try {
       final result = await dataSource.removeItem(id);
@@ -46,6 +51,7 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
     }
   }
 
+  @override
   Future<Either<Failure, T?>> getSingle(String id,
       {List<PathArgs>? pathArgs}) async {
     try {
@@ -56,6 +62,7 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
     }
   }
 
+  @override
   Stream<Either<Failure, T>> streamSingle(String id) async* {
     try {
       yield* dataSource.streamSingle(id).map((event) => Right(event));
@@ -64,15 +71,17 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
     }
   }
 
+  @override
   Stream<Either<Failure, IListResponse<T>>> streamList() async* {
     try {
       yield* dataSource.streamList().map((event) => Right(event));
     } on Exception catch (e) {
-      print('streamList Exception $e');
+      logE('streamList Exception $e');
       yield Left(Failure.fromException(e));
     }
   }
 
+  @override
   Future<Either<Failure, IListResponse<T>>> getQueryList(
       {ReadParams? readParams}) async {
     try {
@@ -83,6 +92,7 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
     }
   }
 
+  @override
   Stream<Either<Failure, IListResponse<T>>> streamQueryList(
       {ReadParams? readParams}) async* {
     try {
@@ -90,12 +100,13 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
           .streamQueryList(readParams: readParams)
           .map((event) => Right(event));
     } on Exception catch (e) {
-      //TODO the exception occurred while parsing the json data to entity using fromMap function is not being captured here due to some unknown reasons.Must investigate.
+      // TODO: the exception occurred while parsing the json data to entity using fromMap function is not being captured here due to some unknown reasons.Must investigate.
       logE('streamQueryList Exception ${e.toString()}');
       yield Left(Failure.fromException(e));
     }
   }
 
+  @override
   Future<Either<Failure, IListResponse<T>>> getListFromTo(
       String field, DateTime from, DateTime to,
       {List<QueryArgs> args = const []}) async {
@@ -108,6 +119,7 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
     }
   }
 
+  @override
   Stream<Either<Failure, IListResponse<T>>> streamListFromTo(
       String field, DateTime from, DateTime to,
       {List<QueryArgs> args = const []}) async* {

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 import 'package:grocery_template/_core/ui/spacing.dart';
-import 'package:grocery_template/app/extra/controllers/language_controller.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/icon_helper.dart';
-import 'package:grocery_template/app/ui/styles.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
+import 'package:grocery_template/app/extra/app_strings.dart';
+import 'package:grocery_template/app/ui/controllers/language_controller.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_icon_helper.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
+import 'package:grocery_template/app/ui/app_text_styles.dart';
 import 'package:grocery_template/generated/l10n.dart';
-import '../../app_strings.dart';
 
 class LanguageChangeButton extends StatelessWidget {
   final Offset offset;
@@ -35,10 +35,6 @@ class LanguageChangeButton extends StatelessWidget {
                           value: element.toLanguageTag(),
                           child: Row(
                             children: [
-                              // SvgPicture.asset(
-                              //   'assets/images/${element.countryCode?.toLowerCase()}.svg',
-                              //   width: 24,
-                              // ),
                               HSpace(Insets.s),
                               SizedBox(
                                 width: 75,
@@ -52,7 +48,7 @@ class LanguageChangeButton extends StatelessWidget {
                                   element.toLanguageTag())
                                 iconWidget(
                                   Icons.check,
-                                  color: ColorHelper.darkColor,
+                                  color: AppColorHelper.darkColor,
                                 ),
                             ],
                           ),
@@ -62,7 +58,7 @@ class LanguageChangeButton extends StatelessWidget {
               child: Icon(
                 Icons.translate_outlined,
                 size: size,
-                color: color ?? ColorHelper.darkColor,
+                color: color ?? AppColorHelper.darkColor,
               ),
             ));
   }

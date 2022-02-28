@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_template/_core/entity_crud/data/read_params.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/icon_helper.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_icon_helper.dart';
+import 'package:grocery_template/app/ui/app_text_styles.dart';
 
 class TitleSorterWidget extends StatelessWidget {
   final String title;
@@ -37,8 +37,8 @@ class TitleSorterWidget extends StatelessWidget {
                 ? Icons.keyboard_arrow_up
                 : Icons.keyboard_arrow_down,
             color: isSelected
-                ? ColorHelper.primaryColor
-                : ColorHelper.dashboardCardTitleColor,
+                ? AppColorHelper.primaryColor
+                : AppColorHelper.dashboardCardTitleColor,
             size: 16, onPress: () {
           if (callback != null) callback!(orderBy);
         }),

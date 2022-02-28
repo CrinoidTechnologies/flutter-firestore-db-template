@@ -3,16 +3,16 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:get/utils.dart';
-import 'package:grocery_template/_core/utils/dialog_utils.dart';
 import 'package:grocery_template/_shared/entity_crud/presentation/pages/entity_list_widget.dart';
+import 'package:grocery_template/_shared/utils/dialog_utils.dart';
 import 'package:grocery_template/app/modules/Grocery/domain/entities/grocery_entity.dart';
 import 'package:grocery_template/app/modules/grocery/presentation/controllers/grocery_list_controller.dart';
 import 'package:grocery_template/app/modules/grocery/presentation/widgets/create_update_grocery_widget.dart';
 import 'package:grocery_template/app/modules/grocery/presentation/widgets/grocery_row_widget.dart';
 import 'package:grocery_template/app/modules/grocery/presentation/widgets/title_sorter_widget.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/styles.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
+import 'package:grocery_template/app/ui/app_text_styles.dart';
 import 'package:grocery_template/generated/l10n.dart';
 
 class GroceryListPage extends StatelessWidget {
@@ -54,13 +54,13 @@ class GroceryListPage extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(Insets.l),
           child: FloatingActionButton(
-            backgroundColor: ColorHelper.primaryColor,
+            backgroundColor: AppColorHelper.primaryColor,
             onPressed: () {
               showCreateUpdateGroceryPopup(context);
             },
             child: Icon(
               Icons.add,
-              color: ColorHelper.lightColor,
+              color: AppColorHelper.lightColor,
             ),
           ),
         ),

@@ -1,8 +1,17 @@
-enum GenderType { male, female, other }
+enum GenderType {
+  male,
+  female,
+  other,
+}
 
 enum EntityStatus {
   active,
   archived,
   deleted,
 }
-enum DashboardContentAction { create, edit, view, dashboard }
+enum DashboardContentAction {
+  create,
+  edit,
+  view,
+  dashboard,
+}

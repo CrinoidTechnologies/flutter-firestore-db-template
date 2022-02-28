@@ -1,8 +1,5 @@
 import 'package:grocery_template/_shared/entity/savable_entity.dart';
-
-const fieldPrice = 'price';
-const fieldDesc = 'desc';
-const fieldExpiryDate = 'expiry_date';
+import 'package:grocery_template/app/extra/app_fields.dart';
 
 class GroceryEntity extends SavableEntity {
   double? price;

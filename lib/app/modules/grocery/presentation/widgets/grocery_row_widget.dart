@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:grocery_template/app/modules/Grocery/domain/entities/grocery_entity.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/styles.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
-import 'action_buttons_widget.dart';
 import 'package:grocery_template/_shared/utils/date_utils.dart';
+import 'package:grocery_template/app/modules/Grocery/domain/entities/grocery_entity.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
+import 'package:grocery_template/app/ui/app_text_styles.dart';
+
+import 'action_buttons_widget.dart';
 
 class GroceryRowWidget extends StatelessWidget {
   final GroceryEntity data;
@@ -19,8 +20,8 @@ class GroceryRowWidget extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(
-              vertical: Insets.mX, horizontal: Insets.mX),
+          padding:
+              EdgeInsets.symmetric(vertical: Insets.mX, horizontal: Insets.mX),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -60,8 +61,7 @@ class GroceryRowWidget extends StatelessWidget {
                           padding: EdgeInsets.only(left: Insets.s),
                           child: Text(
                             data.expiryDate?.serverToGeneralDisplayDate ?? '',
-                            style:
-                                AppTextStyles.captionBodyDarkColor(context),
+                            style: AppTextStyles.captionBodyDarkColor(context),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 2,
                           ),
@@ -82,7 +82,7 @@ class GroceryRowWidget extends StatelessWidget {
         Container(
           height: 0.5,
           width: double.infinity,
-          color: ColorHelper.paginationItemBorderColor,
+          color: AppColorHelper.paginationItemBorderColor,
         ),
       ],
     );

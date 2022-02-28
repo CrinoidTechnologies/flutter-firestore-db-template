@@ -4,16 +4,15 @@ import 'package:flutter/scheduler.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:grocery_template/_core/status.dart';
-import 'package:grocery_template/_core/utils/utils.dart';
 import 'package:grocery_template/_shared/di/dependency_injection.dart';
-import 'package:grocery_template/_shared/utils/logger_utls.dart';
+import 'package:grocery_template/_shared/utils/logger_utils.dart';
 import 'package:grocery_template/_shared/utils/storage_util.dart';
+import 'package:grocery_template/_shared/utils/toast_util.dart';
+import 'package:grocery_template/app/ui/app_themes.dart';
 import 'package:grocery_template/app/utils/app_storage_util.dart';
 
-import '../themes.dart';
 
-
-const ThemeIndicatorIcons = [
+const themeIndicatorIcons = [
   Icons.brightness_auto_sharp,
   Icons.light_mode,
   Icons.dark_mode,
@@ -43,6 +42,7 @@ class ThemeController extends GetxController {
         ((currentThemeMode.value?.index ?? 0) + 1) % ThemeMode.values.length];
     setThemeMode(newTheme, showMessage: true);
   }
+
   //TODO : when changing language, the text colors are not setting properly.. maybe due to the ThemeData not being set properly in GET
   void setThemeMode(ThemeMode themeMode, {bool showMessage = false}) {
     var theme = AppTheme.fromThemeMode(themeMode);

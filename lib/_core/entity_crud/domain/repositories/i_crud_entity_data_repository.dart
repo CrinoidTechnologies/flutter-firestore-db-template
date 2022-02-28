@@ -3,7 +3,7 @@ import 'package:grocery_template/_core/entity_crud/data/read_params.dart';
 import 'package:grocery_template/_core/entity_crud/data/sources/i_crud_data_source.dart';
 import 'package:grocery_template/_core/response/i_list_response.dart';
 import 'package:grocery_template/_core/status.dart';
-import 'package:grocery_template/_shared/entity/shared_entity.dart';
+import 'package:grocery_template/_shared/entity/i_shared_entity.dart';
 
 abstract class ICRUDEntityDataRepository<T extends ISharedEntity> {
   final ICRUDDataSource<T> dataSource;

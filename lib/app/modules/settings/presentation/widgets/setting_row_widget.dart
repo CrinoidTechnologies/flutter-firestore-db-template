@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:grocery_template/_core/ui/spacing.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/styles.dart';
-import 'package:grocery_template/app/widgets/generic_title_widget.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
+import 'package:grocery_template/app/widgets/app_title_widget.dart';
 
 class SettingRowWidget extends StatelessWidget {
   final String title;
@@ -17,13 +17,13 @@ class SettingRowWidget extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [GenericTitleWidget(title: title), suffix],
+          children: [AppTitleWidget(title: title), suffix],
         ),
         VSpace(Insets.sX),
         Container(
           height: 0.5,
           width: double.infinity,
-          color: ColorHelper.paginationItemBorderColor,
+          color: AppColorHelper.paginationItemBorderColor,
         ),
       ],
     );

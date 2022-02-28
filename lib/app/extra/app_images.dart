@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Images {
-  Images._privateConstructor();
+class AppImages {
+  AppImages._privateConstructor();
 
-  static final Images _instance = Images._privateConstructor();
+  static final AppImages _instance = AppImages._privateConstructor();
 
-  static Images get instance {
+  static AppImages get instance {
     return _instance;
   }
 
@@ -16,7 +16,7 @@ class Images {
           BlendMode? colorBlendMode,
           BoxFit? fit}) =>
       Image(
-          image: AssetImage("assets/ic_branding.png"),
+          image: const AssetImage("assets/ic_branding.png"),
           height: height,
           width: width,
           fit: fit,

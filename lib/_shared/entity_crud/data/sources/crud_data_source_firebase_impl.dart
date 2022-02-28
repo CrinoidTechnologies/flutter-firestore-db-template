@@ -3,12 +3,11 @@ import 'package:get/get.dart';
 import 'package:grocery_template/_core/entity_crud/data/read_params.dart';
 import 'package:grocery_template/_core/entity_crud/data/sources/i_crud_data_source.dart';
 import 'package:grocery_template/_core/response/i_list_response.dart';
-import 'package:grocery_template/_shared/entity/savable_entity.dart';
-import 'package:grocery_template/_shared/entity/shared_entity.dart';
+import 'package:grocery_template/_shared/entity/i_shared_entity.dart';
+import 'package:grocery_template/_shared/extra/shared_fields.dart';
 import 'package:grocery_template/_shared/response/list_response.dart';
 import 'package:grocery_template/_shared/utils/storage_util.dart';
 import 'package:grocery_template/app/utils/app_storage_util.dart';
-
 
 abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
     extends ICRUDDataSource<T> {
@@ -23,18 +22,19 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
   CollectionReference collectionBuilderWithList(List<PathArgs>? pathArgs) {
     // print('collectionBuilderWithList $pathArgs');
     var col = rootCollection;
-    (pathArgs ?? []).forEach((element) {
+    for (var element in (pathArgs ?? [])) {
       col = collectionBuilder(element, col);
       // print('pathArgs forEach ${col.path}');
-    });
+    }
     return col;
   }
 
   CollectionReference collectionBuilder(
       PathArgs? pathArgs, CollectionReference collectionReference) {
     // print('collectionBuilder ${pathArgs?.toString()}');
-    if (pathArgs != null)
+    if (pathArgs != null) {
       return collectionReference.doc(pathArgs.key).collection(pathArgs.value);
+    }
     return collectionReference;
   }
 
@@ -70,10 +70,12 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
     return data;
   }
 
+  @override
   String createItemId() {
     return rootCollection.doc().id;
   }
 
+  @override
   Future<T?> createUpdateItem(T item) {
     if ((item.uniqueId ?? '').isNotEmpty) {
       return updateItem(item);
@@ -84,16 +86,20 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
     }
   }
 
+  @override
   Future<T?> updateItem(T item, {List<PathArgs>? pathArgs}) {
     return rootCollection
         .doc(item.uniqueId)
-        .set(toMap(item), SetOptions(merge: true)).then((value) => item);
+        .set(toMap(item), SetOptions(merge: true))
+        .then((value) => item);
   }
 
+  @override
   Future<void> removeItem(String id) {
     return rootCollection.doc(id).delete();
   }
 
+  @override
   Future<T?> getSingle(String id, {List<PathArgs>? pathArgs}) async {
     return getSingleByDocReference(collectionBuilderWithList(pathArgs).doc(id));
   }
@@ -105,6 +111,7 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
     return fromDS(snap.id, snap.data());
   }
 
+  @override
   Stream<T> streamSingle(String id) {
     return rootCollection
         .doc(id)
@@ -112,6 +119,7 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
         .map((snap) => fromDS(snap.id, snap.data()));
   }
 
+  @override
   Stream<IListResponse<T>> streamList() {
     var ref = rootCollection;
     return ref.snapshots().map((list) => ListResponse(
@@ -120,37 +128,42 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
         pageIndex: 0));
   }
 
+  @override
   Future<IListResponse<T>> getQueryList({ReadParams? readParams}) async {
     CollectionReference collref = rootCollection;
     Query? ref;
     if (readParams?.queryArgs != null) {
       for (QueryArgs arg in readParams!.queryArgs!) {
-        if (ref == null)
+        if (ref == null) {
           ref = collref.where(arg.key, isEqualTo: arg.value);
-        else
+        } else {
           ref = ref.where(arg.key, isEqualTo: arg.value);
+        }
       }
     }
     if (readParams?.orderBy != null) {
-      readParams!.orderBy!.forEach((order) {
-        if (ref == null)
+      for (var order in readParams!.orderBy!) {
+        if (ref == null) {
           ref = collref.orderBy(order.field, descending: order.descending);
-        else
-          ref = ref?.orderBy(order.field, descending: order.descending);
-      });
+        } else {
+          ref = ref.orderBy(order.field, descending: order.descending);
+        }
+      }
     }
     if (readParams?.limit != null) {
-      if (ref == null)
+      if (ref == null) {
         ref = collref.limit(readParams!.limit!);
-      else
-        ref = ref?.limit(readParams!.limit!);
+      } else {
+        ref = ref.limit(readParams!.limit!);
+      }
     }
 
     QuerySnapshot query;
-    if (ref != null)
-      query = await ref!.get();
-    else
+    if (ref != null) {
+      query = await ref.get();
+    } else {
       query = await collref.get();
+    }
 
     return ListResponse<T>(
         items: query.docs
@@ -161,31 +174,35 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
         itemsPerPage: readParams?.limit);
   }
 
+  @override
   Stream<IListResponse<T>> streamQueryList({ReadParams? readParams}) {
     // CollectionReference collRef = rootCollection;
     CollectionReference collRef =
         collectionBuilderWithList(readParams?.pathArgs);
     Query? ref;
     if (readParams?.orderBy != null) {
-      readParams!.orderBy!.forEach((order) {
-        if (ref == null)
+      for (var order in readParams!.orderBy!) {
+        if (ref == null) {
           ref = collRef.orderBy(order.field, descending: order.descending);
-        else
-          ref = ref!.orderBy(order.field, descending: order.descending);
-      });
+        } else {
+          ref = ref.orderBy(order.field, descending: order.descending);
+        }
+      }
     }
     if (readParams?.queryArgs != null) {
       for (QueryArgs arg in readParams!.queryArgs!) {
         if (ref == null) {
-          if (arg.negate)
+          if (arg.negate) {
             ref = collRef.where(arg.key, isNotEqualTo: arg.value);
-          else
+          } else {
             ref = collRef.where(arg.key, isEqualTo: arg.value);
+          }
         } else {
-          if (arg.negate)
-            ref = ref!.where(arg.key, isNotEqualTo: arg.value);
-          else
-            ref = ref!.where(arg.key, isEqualTo: arg.value);
+          if (arg.negate) {
+            ref = ref.where(arg.key, isNotEqualTo: arg.value);
+          } else {
+            ref = ref.where(arg.key, isEqualTo: arg.value);
+          }
         }
       }
     }
@@ -193,22 +210,25 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
     if (readParams?.whereInArgs != null) {
       WhereInArgs arg = readParams!.whereInArgs!;
       if (arg.negate) {
-        if (ref == null)
+        if (ref == null) {
           ref = collRef.where(arg.key, whereNotIn: arg.value);
-        else
-          ref = ref!.where(arg.key, whereNotIn: arg.value);
+        } else {
+          ref = ref.where(arg.key, whereNotIn: arg.value);
+        }
       } else {
-        if (ref == null)
+        if (ref == null) {
           ref = collRef.where(arg.key, whereIn: arg.value);
-        else
-          ref = ref!.where(arg.key, whereIn: arg.value);
+        } else {
+          ref = ref.where(arg.key, whereIn: arg.value);
+        }
       }
     }
     if (readParams?.limit != null) {
-      if (ref == null)
+      if (ref == null) {
         ref = collRef.limit(readParams!.limit!);
-      else
-        ref = ref?.limit(readParams!.limit!);
+      } else {
+        ref = ref.limit(readParams!.limit!);
+      }
     }
 
     return (ref ?? collRef).snapshots().map((snap) => ListResponse<T>(
@@ -218,6 +238,7 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
         totalItems: snap.size));
   }
 
+  @override
   Future<IListResponse<T>> getListFromTo(
       String field, DateTime from, DateTime to,
       {List<QueryArgs> args = const []}) async {
@@ -234,6 +255,7 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
     );
   }
 
+  @override
   Stream<IListResponse<T>> streamListFromTo(
       String field, DateTime from, DateTime to,
       {List<QueryArgs> args = const []}) {

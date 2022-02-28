@@ -17,9 +17,10 @@ extension SharedDateUtils on DateTime {
 
   String get generalDisplayTime => generalTime.format(this);
 
-  String get generalDisplayTimeWithSeconds => generalTimeWithSeconds.format(this);
+  String get generalDisplayTimeWithSeconds =>
+      generalTimeWithSeconds.format(this);
 
-  get serverTimeStamp => this.fbTimeStamp;
+  get serverTimeStamp => fbTimeStamp;
 }
 
 extension StringDateUtils on String {
@@ -29,6 +30,5 @@ extension StringDateUtils on String {
 
   DateTime get asGeneralDisplayTime => SharedDateUtils.generalTime.parse(this);
 
-  String? get serverToGeneralDisplayDate =>
-      this.asServerDate.generalDisplayDate;
+  String? get serverToGeneralDisplayDate => asServerDate.generalDisplayDate;
 }

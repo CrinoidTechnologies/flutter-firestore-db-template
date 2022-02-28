@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_text_styles.dart';
 import 'package:grocery_template/generated/l10n.dart';
 
 class SplashPage extends StatelessWidget {
@@ -9,12 +9,12 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ColorHelper.lightColor,
+      color: AppColorHelper.lightColor,
       child: Center(
         child: Text(
           S.of(context).appTitle,
           style: AppTextStyles.headline4Style(context,
-              color: ColorHelper.primaryColor, weight: FontWeight.bold),
+              color: AppColorHelper.primaryColor, weight: FontWeight.bold),
         ),
       ),
     );

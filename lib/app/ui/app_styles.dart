@@ -1,23 +1,13 @@
 import 'package:flutter/material.dart';
-import 'color_helper.dart';
-export 'package:time/time.dart';
 
-// class Durations {
-//   static Duration get fastest => .15.seconds;
-//
-//   static Duration get fast => .25.seconds;
-//
-//   static Duration get medium => .35.seconds;
-//
-//   static Duration get slow => .7.seconds;
-// }
+import 'app_color_helper.dart';
+
+export 'package:time/time.dart';
 
 class Fonts {
   static const String lato = "Lato";
 
   static const String quicksand = "Quicksand";
-
-  static const String emoji = "OpenSansEmoji";
 }
 
 class PageBreaks {
@@ -57,20 +47,6 @@ class Insets {
   static double get xxl => 46 * scale;
 
   static double get defaultPadding => mX;
-}
-
-class FontSizes {
-  static double get scale => 1;
-
-  static double get s11 => 11 * scale;
-
-  static double get s12 => 12 * scale;
-
-  static double get s14 => 14 * scale;
-
-  static double get s16 => 16 * scale;
-
-  static double get s18 => 18 * scale;
 }
 
 class Sizes {
@@ -113,13 +89,13 @@ class Shadows {
               color: color.withOpacity(opacity ?? .03),
               blurRadius: mRadius,
               spreadRadius: mRadius / 2,
-              offset: Offset(1, 0),
+              offset: const Offset(1, 0),
             ),
             BoxShadow(
               color: color.withOpacity(opacity ?? .04),
               blurRadius: mRadius / 2,
               spreadRadius: mRadius / 4,
-              offset: Offset(1, 0),
+              offset: const Offset(1, 0),
             )
           ]
         : [];
@@ -127,7 +103,7 @@ class Shadows {
 }
 
 class Corners {
-  static double get btn => s5;
+  static double get btn => s4;
 
   static double get dialog => 12;
 
@@ -138,11 +114,6 @@ class Corners {
   static Radius get s2Radius => Radius.circular(s2);
 
   /// Xs
-  static double get s3 => 3;
-
-  static BorderRadius get s3Border => BorderRadius.all(s3Radius);
-
-  static Radius get s3Radius => Radius.circular(s3);
 
   static double get s4 => 4;
 
@@ -151,11 +122,6 @@ class Corners {
   static Radius get s4Radius => Radius.circular(s4);
 
   /// Small
-  static double get s5 => 5;
-
-  static BorderRadius get s5Border => BorderRadius.all(s5Radius);
-
-  static Radius get s5Radius => Radius.circular(s5);
 
   static double get s6 => 6;
 
@@ -183,35 +149,17 @@ class Corners {
 
   static Radius get s12Radius => Radius.circular(s12);
 
-  static double get s14 => 14;
-
-  static BorderRadius get s14Border => BorderRadius.all(s14Radius);
-
-  static Radius get s14Radius => Radius.circular(s14);
-
   static double get s16 => 16;
 
   static Radius get s16Radius => Radius.circular(s16);
 
   static BorderRadius get s16Border => BorderRadius.all(s16Radius);
 
-  static double get s18 => 18;
-
-  static Radius get s18Radius => Radius.circular(s18);
-
-  static BorderRadius get s18Border => BorderRadius.all(s18Radius);
-
   static double get s20 => 20;
 
   static BorderRadius get s20Border => BorderRadius.all(s20Radius);
 
   static Radius get s20Radius => Radius.circular(s20);
-
-  static double get s25 => 25;
-
-  static BorderRadius get s25Border => BorderRadius.all(s25Radius);
-
-  static Radius get s25Radius => Radius.circular(s25);
 
   static double get s30 => 30;
 
@@ -220,11 +168,11 @@ class Corners {
   static Radius get s30Radius => Radius.circular(s30);
 
   static OutlineInputBorder inputFieldBorder(
-          {Color? borderColor, Radius? radius, bool showError: false}) =>
+          {Color? borderColor, Radius? radius, bool showError = false}) =>
       OutlineInputBorder(
           borderSide: BorderSide(
               color: showError
-                  ? ColorHelper.errorColor
-                  : borderColor ?? (ColorHelper.borderColor)),
+                  ? AppColorHelper.errorColor
+                  : borderColor ?? (AppColorHelper.borderColor)),
           borderRadius: BorderRadius.all(radius ?? Corners.s4Radius));
 }

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_template/app/ui/styles.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
 import 'package:grocery_template/generated/l10n.dart';
-import 'app_tooltip.dart';
-import 'bg_decoration.dart';
-import 'color_helper.dart';
 
+import 'app_tooltip.dart';
+import 'app_decorations.dart';
+import 'app_color_helper.dart';
 
 Widget clickableIconButton(IconData icon,
         {Color? color,
         double size = 24,
         VoidCallback? onPress,
         String? toolTip,
-        EdgeInsetsGeometry padding: const EdgeInsets.all(8.0)}) =>
+        EdgeInsetsGeometry padding = const EdgeInsets.all(8.0)}) =>
     IconButton(
-      icon: iconWidget(icon, size: size, color: color ?? ColorHelper.darkColor),
+      icon: iconWidget(icon, size: size, color: color ?? AppColorHelper.darkColor),
       iconSize: size,
       padding: padding,
       tooltip: toolTip,
@@ -34,10 +34,10 @@ Widget clickableIcon(
         if (onPress != null) onPress();
       },
       child: Padding(
-        padding: padding ?? EdgeInsets.all(0),
+        padding: padding ?? const EdgeInsets.all(0),
         child: iconWidget(
           icon,
-          color: color ?? ColorHelper.darkColor,
+          color: color ?? AppColorHelper.darkColor,
           size: size,
         ),
       ),
@@ -60,10 +60,10 @@ Widget clickableToolTipIcon(IconData icon,
           if (onPress != null) onPress();
         },
         child: Padding(
-          padding: padding ?? EdgeInsets.all(0),
+          padding: padding ?? const EdgeInsets.all(0),
           child: iconWidget(
             icon,
-            color: color ?? ColorHelper.darkColor,
+            color: color ?? AppColorHelper.darkColor,
             size: size,
           ),
         ),
@@ -81,7 +81,7 @@ Widget clickableToolTipWidget(Widget widget,
           if (onPress != null) onPress();
         },
         child: Padding(
-          padding: padding ?? EdgeInsets.all(0),
+          padding: padding ?? const EdgeInsets.all(0),
           child: widget,
         ),
       ),
@@ -90,7 +90,7 @@ Widget clickableToolTipWidget(Widget widget,
 Icon iconWidget(IconData icon, {Color? color, double size = 24}) {
   return Icon(
     icon,
-    color: color ?? ColorHelper.darkColor,
+    color: color ?? AppColorHelper.darkColor,
     size: size,
   );
 }
@@ -106,7 +106,7 @@ Widget datePickerIconWidget(
     decoration: AppDecorations.datPickerIconBgDecoration(bgColor: bgColor),
     child: iconWidget(
       Icons.calendar_today,
-      color: iconColor ?? ColorHelper.blueColor,
+      color: iconColor ?? AppColorHelper.blueColor,
       size: isCompactView ? Insets.sX : Insets.mX,
     ),
   );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class KeepAliveWrapper extends StatefulWidget {
   final Widget child;
 
-  const KeepAliveWrapper({required this.child});
+  const KeepAliveWrapper({required this.child, Key? key}) : super(key: key);
 
   @override
   _KeepAliveWrapperState createState() => _KeepAliveWrapperState();

@@ -1,4 +1,3 @@
-import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:grocery_template/app/extra/app_enum.dart';
@@ -6,8 +5,6 @@ import 'package:grocery_template/app/extra/app_enum.dart';
 final empty = Rx<String?>(null);
 
 class DashboardController extends GetxController {
-  // final LogoutUseCase logoutUseCase;
-
   /// monitor status of login
   final isProcessing = false.obs;
   final explorerPage = 0.obs;
@@ -18,11 +15,11 @@ class DashboardController extends GetxController {
   final title = ''.obs;
   final subTitle = ''.obs;
 
-  var data;
+  Object? data;
 
   DashboardContentAction action = DashboardContentAction.view;
 
-  DashboardController(/*this.logoutUseCase,*/ {currentPage = 0}) {
+  DashboardController({currentPage = 0}) {
     explorerPage.value = currentPage ?? 0;
   }
 
@@ -62,7 +59,7 @@ class DashboardController extends GetxController {
       {int? topPage,
       int? explorerPage,
       data,
-      DashboardContentAction action: DashboardContentAction.view}) {
+      DashboardContentAction action = DashboardContentAction.view}) {
     if (topPage != null) this.topPage.value = topPage;
     if (explorerPage != null) this.explorerPage.value = explorerPage;
     this.data = data;
@@ -76,8 +73,7 @@ class DashboardController extends GetxController {
       String? h2,
       String? h3,
       bool resetAll = true}) async {
-    await Future.delayed(Duration(milliseconds: 300));
-    //TODO Gundeep : check all screens for titles
+    await Future.delayed(const Duration(milliseconds: 300));
     if (title != null || resetAll) this.title.value = title ?? "";
     if (subTitle != null || resetAll) this.subTitle.value = subTitle ?? "";
     if (h1 != null || resetAll) this.h1.value = h1 ?? "";

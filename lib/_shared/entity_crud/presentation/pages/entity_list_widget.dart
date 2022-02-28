@@ -1,16 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grocery_template/_shared/entity/savable_entity.dart';
 import 'package:grocery_template/_shared/entity_crud/presentation/controllers/base_list_controller.dart';
 import 'package:grocery_template/_shared/ui/components/loading_widget.dart';
-import 'package:grocery_template/app/ui/bg_decoration.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/icon_helper.dart';
-import 'package:grocery_template/app/ui/input_decorations.dart';
-import 'package:grocery_template/app/ui/styles.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
-import 'package:grocery_template/app/widgets/genric_button_widget.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_icon_helper.dart';
+import 'package:grocery_template/app/ui/app_input_decorations.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
+import 'package:grocery_template/app/widgets/app_button_widget.dart';
 import 'package:grocery_template/generated/l10n.dart';
 
 typedef RowBuilder<S extends Widget, T extends SavableEntity> = S Function(
@@ -36,7 +33,7 @@ class EntityListWidget<T extends SavableEntity> extends StatelessWidget {
     return ClipRRect(
       borderRadius: Corners.s30Border,
       child: Container(
-        padding: EdgeInsets.only(top: Insets  .xl, bottom: Insets.mX),
+        padding: EdgeInsets.only(top: Insets.xl, bottom: Insets.mX),
         child: Column(
           children: [
             if (showSearchAndFilter) ...[
@@ -45,7 +42,7 @@ class EntityListWidget<T extends SavableEntity> extends StatelessWidget {
                 margin: EdgeInsets.only(top: Insets.mX),
                 height: 0.5,
                 width: double.infinity,
-                color: ColorHelper.paginationItemBorderColor,
+                color: AppColorHelper.paginationItemBorderColor,
               ),
             ],
             if (headerBuilder != null) ...[
@@ -53,7 +50,7 @@ class EntityListWidget<T extends SavableEntity> extends StatelessWidget {
               Container(
                 height: 0.5,
                 width: double.infinity,
-                color: ColorHelper.paginationItemBorderColor,
+                color: AppColorHelper.paginationItemBorderColor,
               )
             ],
             Expanded(
@@ -64,14 +61,14 @@ class EntityListWidget<T extends SavableEntity> extends StatelessWidget {
                       if (position == length - 1) {
                         return (controller.itemsFetchedToLimit &&
                                 controller.isFetching.isFalse)
-                            ? GenericButtonWidget(
+                            ? AppButtonWidget(
                                 label: /*S.of(context).loadNextCountItems(
                                     controller.limitPerFetch.value)*/
                                     'Load next items',
                                 onTap: controller.fetchMoreItems,
                               )
                             : controller.isFetching.isTrue
-                                ? LoadingWidget()
+                                ? const LoadingWidget()
                                 : Container();
                       }
                       return rowBuilder(
@@ -103,7 +100,7 @@ class EntityListWidget<T extends SavableEntity> extends StatelessWidget {
               decoration: AppInputDecorations.formInputFieldDecoration(
                   prefixIcon: iconWidget(
                     Icons.search,
-                    color: ColorHelper.dashboardCardTitleColor,
+                    color: AppColorHelper.dashboardCardTitleColor,
                   ),
                   hintText: S.of(context).search),
             ),

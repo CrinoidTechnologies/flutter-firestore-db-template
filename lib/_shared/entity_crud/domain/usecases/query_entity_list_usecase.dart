@@ -4,8 +4,7 @@ import 'package:grocery_template/_core/entity_crud/domain/repositories/i_crud_en
 import 'package:grocery_template/_core/response/i_list_response.dart';
 import 'package:grocery_template/_core/status.dart';
 import 'package:grocery_template/_core/usecase/usecase.dart';
-import 'package:grocery_template/_shared/entity/shared_entity.dart';
-
+import 'package:grocery_template/_shared/entity/i_shared_entity.dart';
 
 class QueryEntityListUseCase<T extends ISharedEntity>
     extends UseCase<IListResponse<T>, ReadParams?> {
