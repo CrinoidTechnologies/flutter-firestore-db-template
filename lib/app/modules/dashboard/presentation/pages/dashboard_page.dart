@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:grocery_template/app/modules/grocery/presentation/pages/grocery_list_page.dart';
 import 'package:grocery_template/app/modules/settings/presentation/pages/settings_page.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
 import 'package:grocery_template/app/ui/controllers/theme_controller.dart';
 import 'package:grocery_template/generated/l10n.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -37,14 +37,14 @@ class _DashboardPageState extends State<DashboardPage> {
       screens: _buildScreens(),
       items: _navBarsItems(),
       confineInSafeArea: true,
-      backgroundColor: ColorHelper.lightColor,
+      backgroundColor: AppColorHelper.lightColor,
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
       stateManagement: false,
       hideNavigationBarWhenKeyboardShows: true,
       decoration: NavBarDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        colorBehindNavBar: ColorHelper.lightColor,
+        colorBehindNavBar: AppColorHelper.lightColor,
       ),
       popAllScreensOnTapOfSelectedTab: true,
       popActionScreens: PopActionScreensType.all,
@@ -75,14 +75,14 @@ class _DashboardPageState extends State<DashboardPage> {
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.list_bullet),
         title: (S.of(context).groceries),
-        activeColorPrimary: ColorHelper.primaryColor,
-        inactiveColorPrimary: ColorHelper.greyColor,
+        activeColorPrimary: AppColorHelper.primaryColor,
+        inactiveColorPrimary: AppColorHelper.greyColor,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.settings),
         title: (S.of(context).settings),
-        activeColorPrimary: ColorHelper.primaryColor,
-        inactiveColorPrimary: ColorHelper.greyColor,
+        activeColorPrimary: AppColorHelper.primaryColor,
+        inactiveColorPrimary: AppColorHelper.greyColor,
       ),
     ];
   }

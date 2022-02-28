@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grocery_template/_shared/extra/shared_constants.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/icon_helper.dart';
-import 'package:grocery_template/app/ui/styles.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_icon_helper.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
+import 'package:grocery_template/app/ui/app_text_styles.dart';
 import 'package:grocery_template/app/widgets/app_button_widget.dart';
 import 'package:grocery_template/generated/l10n.dart';
 
@@ -55,7 +55,7 @@ Future<bool?> showOkCancelPopUp(String title, String message) async {
   );
 }
 
-showCustomPopup(BuildContext context, Widget child,
+Future showCustomPopup(BuildContext context, Widget child,
     {bool? barrierDismissible}) {
   return showGeneralDialog(
       transitionDuration: const Duration(milliseconds: 200),
@@ -90,7 +90,7 @@ class GenericPopupWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: ColorHelper.lightColor,
+      backgroundColor: AppColorHelper.lightColor,
       title: Text(
         title,
         style: AppTextStyles.headline4DarkColor,
@@ -103,11 +103,11 @@ class GenericPopupWidget extends StatelessWidget {
       actions: [
         AppButtonWidget(
           label: S.of(context).cancel,
-          bgColor: ColorHelper.participantFormBackBtnColor,
-          labelColor: ColorHelper.darkOrangeColor,
+          bgColor: AppColorHelper.participantFormBackBtnColor,
+          labelColor: AppColorHelper.darkOrangeColor,
           prefix: iconWidget(
             Icons.close,
-            color: ColorHelper.darkOrangeColor,
+            color: AppColorHelper.darkOrangeColor,
           ),
           onTap: onCancel,
         ),
@@ -115,11 +115,11 @@ class GenericPopupWidget extends StatelessWidget {
           padding: EdgeInsets.only(top: Insets.m),
           child: AppButtonWidget(
             label: S.of(context).ok,
-            bgColor: ColorHelper.participantFormDarkOrangeColor,
-            labelColor: ColorHelper.fixedLightColor,
+            bgColor: AppColorHelper.participantFormDarkOrangeColor,
+            labelColor: AppColorHelper.fixedLightColor,
             prefix: iconWidget(
               Icons.done,
-              color: ColorHelper.fixedLightColor,
+              color: AppColorHelper.fixedLightColor,
             ),
             onTap: onOk,
           ),

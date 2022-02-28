@@ -1,6 +1,7 @@
 import 'package:grocery_template/_shared/common/app_environment.dart';
 import 'package:grocery_template/app/ui/routes/app_pages.dart';
 
+/// Default development environment
 class EnvDev extends Environment {
   @override
   String get name => 'Dev';

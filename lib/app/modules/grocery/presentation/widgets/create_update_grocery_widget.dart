@@ -8,11 +8,11 @@ import 'package:grocery_template/_shared/utils/toast_util.dart';
 import 'package:grocery_template/app/di/dependency_injection.dart';
 import 'package:grocery_template/app/modules/Grocery/domain/entities/grocery_entity.dart';
 import 'package:grocery_template/app/modules/grocery/domain/usecases/create_update_grocery_use_case.dart';
-import 'package:grocery_template/app/ui/bg_decoration.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/icon_helper.dart';
-import 'package:grocery_template/app/ui/styles.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
+import 'package:grocery_template/app/ui/app_decorations.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_icon_helper.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
+import 'package:grocery_template/app/ui/app_text_styles.dart';
 import 'package:grocery_template/generated/l10n.dart';
 
 class CreateUpdateGroceryWidget extends StatefulWidget {
@@ -83,12 +83,12 @@ class _CreateUpdateGroceryWidgetState extends State<CreateUpdateGroceryWidget> {
                     isDense: true,
                     hintText: S.of(context).enterTitle,
                     hintStyle: AppTextStyles.headline5Style(context,
-                        color: ColorHelper.bodyLightColor),
+                        color: AppColorHelper.bodyLightColor),
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none),
                 style: AppTextStyles.headline5Style(context,
-                    color: ColorHelper.headingColor),
-                cursorColor: ColorHelper.participantFormDarkOrangeColor,
+                    color: AppColorHelper.headingColor),
+                cursorColor: AppColorHelper.participantFormDarkOrangeColor,
               ),
               VSpace(Insets.m),
               TextFormField(
@@ -103,7 +103,7 @@ class _CreateUpdateGroceryWidgetState extends State<CreateUpdateGroceryWidget> {
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none),
                 style: AppTextStyles.bodyText1DarkColor,
-                cursorColor: ColorHelper.participantFormDarkOrangeColor,
+                cursorColor: AppColorHelper.participantFormDarkOrangeColor,
                 keyboardType: TextInputType.number,
               ),
               VSpace(Insets.m),
@@ -118,7 +118,7 @@ class _CreateUpdateGroceryWidgetState extends State<CreateUpdateGroceryWidget> {
                     child: Row(
                       children: [
                         iconWidget(Icons.calendar_today_outlined,
-                            color: ColorHelper.bodyDarkColor),
+                            color: AppColorHelper.bodyDarkColor),
                         HSpace(Insets.m),
                         Text(
                           entity.expiryDate?.serverToGeneralDisplayDate ??
@@ -156,7 +156,7 @@ class _CreateUpdateGroceryWidgetState extends State<CreateUpdateGroceryWidget> {
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none),
                   style: AppTextStyles.bodyText1DarkColor,
-                  cursorColor: ColorHelper.participantFormDarkOrangeColor,
+                  cursorColor: AppColorHelper.participantFormDarkOrangeColor,
                   expands: true,
                   minLines: null,
                   maxLines: null,
@@ -185,7 +185,7 @@ class _CreateUpdateGroceryWidgetState extends State<CreateUpdateGroceryWidget> {
                         : getButton(isSave: true))
                     : iconWidget(
                         Icons.edit_outlined,
-                        color: ColorHelper.darkColor,
+                        color: AppColorHelper.darkColor,
                       ),
                 onTap: () {
                   if (isEditMode) {
@@ -211,7 +211,7 @@ class _CreateUpdateGroceryWidgetState extends State<CreateUpdateGroceryWidget> {
                   HSpace(Insets.l),
                   clickableIcon(
                     Icons.delete_outline_rounded,
-                    color: ColorHelper.darkColor,
+                    color: AppColorHelper.darkColor,
                     onPress: () {
                       if (widget.onDelete != null) widget.onDelete!(entity);
                     },
@@ -256,7 +256,7 @@ class _CreateUpdateGroceryWidgetState extends State<CreateUpdateGroceryWidget> {
           padding: EdgeInsets.all(Insets.m),
           child: iconWidget(
             isSave ? Icons.check : Icons.close,
-            color: ColorHelper.darkColor,
+            color: AppColorHelper.darkColor,
           )),
     );
   }
