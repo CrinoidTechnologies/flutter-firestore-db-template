@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_template/_core/ui/spacing.dart';
-import 'package:grocery_template/app/ui/input_decorations.dart';
-import 'package:grocery_template/app/ui/styles.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
+import 'package:grocery_template/app/ui/app_input_decorations.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
+import 'package:grocery_template/app/ui/app_text_styles.dart';
 import 'package:grocery_template/app/widgets/app_title_widget.dart';
 
 class AppTextInputWidget extends StatelessWidget {

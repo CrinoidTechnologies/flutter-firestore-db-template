@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
+import 'package:grocery_template/app/ui/app_text_styles.dart';
 
 class AppTitleWidget extends StatelessWidget {
   final String title;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'color_helper.dart';
+import 'app_color_helper.dart';
 
 /// TextStyles - All the core text styles for the app should be declared here.
 /// Don't try and create every variant in existence here, just the high level ones.
@@ -81,68 +81,68 @@ class AppTextStyles {
   static TextStyle get body12MediumGreyWeakColor => Get.find<ThemeData>()
       .textTheme
       .bodyText1!
-      .copyWith(color: ColorHelper.greyWeakColor, fontSize: 12);
+      .copyWith(color: AppColorHelper.greyWeakColor, fontSize: 12);
 
   static TextStyle get headline4DarkColor => Get.find<ThemeData>()
       .textTheme
       .headline4!
-      .copyWith(color: ColorHelper.darkColor);
+      .copyWith(color: AppColorHelper.darkColor);
 
   static TextStyle get bodyText1DarkColor => Get.find<ThemeData>()
       .textTheme
       .bodyText1!
-      .copyWith(color: ColorHelper.darkColor);
+      .copyWith(color: AppColorHelper.darkColor);
 
   static TextStyle get bodyText2BodyLightColor => Get.find<ThemeData>()
       .textTheme
       .bodyText2!
-      .copyWith(color: ColorHelper.bodyLightColor);
+      .copyWith(color: AppColorHelper.bodyLightColor);
 
   static TextStyle get bodyText2LightColor => Get.find<ThemeData>()
       .textTheme
       .bodyText2!
-      .copyWith(color: ColorHelper.lightColor);
+      .copyWith(color: AppColorHelper.lightColor);
 
   static TextStyle get bodyText2BodyDarkColor => Get.find<ThemeData>()
       .textTheme
       .bodyText2!
-      .copyWith(color: ColorHelper.bodyDarkColor);
+      .copyWith(color: AppColorHelper.bodyDarkColor);
 
   static TextStyle get bodyText2BodyDarkColor12 => Get.find<ThemeData>()
       .textTheme
       .bodyText2!
-      .copyWith(color: ColorHelper.bodyDarkColor, fontSize: 12);
+      .copyWith(color: AppColorHelper.bodyDarkColor, fontSize: 12);
 
   static TextStyle get bodyText2MediumAccentColor => Get.find<ThemeData>()
       .textTheme
       .bodyText2!
-      .copyWith(color: ColorHelper.accentColor, fontWeight: FontWeight.w500);
+      .copyWith(color: AppColorHelper.accentColor, fontWeight: FontWeight.w500);
 
 
   static TextStyle get bodyText2PrimaryColor => Get.find<ThemeData>()
       .textTheme
       .bodyText2!
-      .copyWith(color: ColorHelper.primaryColor);
+      .copyWith(color: AppColorHelper.primaryColor);
 
   static TextStyle get bodyText2DarkOrangeColor => Get.find<ThemeData>()
       .textTheme
       .bodyText2!
-      .copyWith(color: ColorHelper.darkOrangeColor);
+      .copyWith(color: AppColorHelper.darkOrangeColor);
 
   static TextStyle get bodyText1LightColor => Get.find<ThemeData>()
       .textTheme
       .bodyText1!
-      .copyWith(color: ColorHelper.lightColor);
+      .copyWith(color: AppColorHelper.lightColor);
 
   static TextStyle get captionBodyLightColor => Get.find<ThemeData>()
       .textTheme
       .caption!
-      .copyWith(color: ColorHelper.bodyLightColor);
+      .copyWith(color: AppColorHelper.bodyLightColor);
 
   static TextStyle get captionGreenColor => Get.find<ThemeData>()
       .textTheme
       .caption!
-      .copyWith(color: ColorHelper.successTextColor);
+      .copyWith(color: AppColorHelper.successTextColor);
 
 
   static TextStyle bodyText1(BuildContext context) =>
@@ -155,7 +155,7 @@ class AppTextStyles {
 
   static TextStyle bodyText1MediumLightColor(BuildContext context) =>
       Theme.of(context).textTheme.bodyText1!.copyWith(
-          fontWeight: FontWeight.w500, color: ColorHelper.bodyLightColor);
+          fontWeight: FontWeight.w500, color: AppColorHelper.bodyLightColor);
 
   static TextStyle bodyText2(BuildContext context) =>
       Theme.of(context).textTheme.bodyText2!.copyWith();
@@ -164,47 +164,47 @@ class AppTextStyles {
       Theme.of(context)
           .textTheme
           .caption!
-          .copyWith(color: ColorHelper.bodyDarkColor);
+          .copyWith(color: AppColorHelper.bodyDarkColor);
 
   static TextStyle get bodyRegular14HeadingColor =>
       Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
           fontSize: 14,
-          color: ColorHelper.darkColor,
+          color: AppColorHelper.darkColor,
           fontWeight: FontWeight.w400);
 
   static TextStyle get text14NormalDarkColor =>
       Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
           fontSize: 14,
-          color: ColorHelper.darkColor,
+          color: AppColorHelper.darkColor,
           fontWeight: FontWeight.w400);
 
   static TextStyle get text14NormalGreyColor =>
       Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
           fontSize: 14,
-          color: ColorHelper.greyColor,
+          color: AppColorHelper.greyColor,
           fontWeight: FontWeight.w400);
 
   static TextStyle get text12NormalGreyColor =>
       Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
           fontSize: 12,
-          color: ColorHelper.greyColor,
+          color: AppColorHelper.greyColor,
           fontWeight: FontWeight.w400);
 
   static TextStyle get text15NormalDarkColor =>
       Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
           fontSize: 15,
-          color: ColorHelper.darkColor,
+          color: AppColorHelper.darkColor,
           fontWeight: FontWeight.w400);
 
   static TextStyle get text15NormalDarkOrangeColor =>
-      text15NormalDarkColor.copyWith(color: ColorHelper.darkOrangeColor);
+      text15NormalDarkColor.copyWith(color: AppColorHelper.darkOrangeColor);
 
   static TextStyle get text15NormalBluishGreyColor =>
       Get.find<ThemeData>().textTheme.bodyText1!.copyWith(
           fontSize: 15,
-          color: ColorHelper.bluishGreyColor,
+          color: AppColorHelper.bluishGreyColor,
           fontWeight: FontWeight.w400);
 
   static TextStyle get text15MediumDarkColor => text15NormalDarkColor.copyWith(
-      fontWeight: FontWeight.w500, color: ColorHelper.darkColor);
+      fontWeight: FontWeight.w500, color: AppColorHelper.darkColor);
 }

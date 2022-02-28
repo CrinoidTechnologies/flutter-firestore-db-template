@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grocery_template/app/ui/themes.dart';
+import 'package:grocery_template/app/ui/app_themes.dart';
 
-class ColorHelper {
+class AppColorHelper {
   static Color get accentColor => Get.find<AppTheme>().accent;
 
   static Color get primaryColor => Get.find<AppTheme>().primary;

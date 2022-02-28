@@ -8,9 +8,9 @@ import 'package:grocery_template/_shared/di/dependency_injection.dart';
 import 'package:grocery_template/_shared/utils/logger_utils.dart';
 import 'package:grocery_template/_shared/utils/storage_util.dart';
 import 'package:grocery_template/_shared/utils/toast_util.dart';
+import 'package:grocery_template/app/ui/app_themes.dart';
 import 'package:grocery_template/app/utils/app_storage_util.dart';
 
-import '../themes.dart';
 
 const themeIndicatorIcons = [
   Icons.brightness_auto_sharp,

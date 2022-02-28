@@ -1,13 +1,10 @@
 const String fieldId = 'id';
-const String fieldTitle = 'title';
+const String fieldTitle = 'tl';
 
-@Deprecated('use fieldSnoId instead')
-const String fieldCtmaId = 'ctma_id';
-const String fieldSnoId = 'sNo';
 @Deprecated('use metaFieldCreatedOn, but might cause issue with old entries')
-const fieldCreatedOn = 'created_on';
+const fieldCreatedOn = 'c_on';
 @Deprecated('use metaFieldUpdatedOn, but might cause issue with old entries')
-const fieldUpdatedOn = 'updated_on';
+const fieldUpdatedOn = 'u_on';
 const fieldStatus = 'status';
 const metaFieldCreated = '_c';
 const metaFieldCreatedOn = '_c.on';

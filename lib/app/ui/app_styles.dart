@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'color_helper.dart';
+import 'app_color_helper.dart';
 
 export 'package:time/time.dart';
 
@@ -172,7 +172,7 @@ class Corners {
       OutlineInputBorder(
           borderSide: BorderSide(
               color: showError
-                  ? ColorHelper.errorColor
-                  : borderColor ?? (ColorHelper.borderColor)),
+                  ? AppColorHelper.errorColor
+                  : borderColor ?? (AppColorHelper.borderColor)),
           borderRadius: BorderRadius.all(radius ?? Corners.s4Radius));
 }

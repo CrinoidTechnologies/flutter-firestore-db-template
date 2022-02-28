@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/styles.dart';
-import 'package:grocery_template/app/ui/text_styles.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
+import 'package:grocery_template/app/ui/app_text_styles.dart';
 
 class AppButtonWidget extends StatelessWidget {
   final String label;
@@ -36,7 +36,7 @@ class AppButtonWidget extends StatelessWidget {
       onTapDown: onTapDown,
       child: Container(
         decoration: BoxDecoration(
-          color: bgColor ?? ColorHelper.darkOrangeColor,
+          color: bgColor ?? AppColorHelper.darkOrangeColor,
           borderRadius:
               BorderRadius.all(Radius.circular(borderRadius ?? Corners.s4)),
         ),
@@ -53,7 +53,7 @@ class AppButtonWidget extends StatelessWidget {
                 child: Text(
                   label,
                   style: AppTextStyles.bodyText2Style(context,
-                      color: labelColor ?? ColorHelper.fixedLightColor),
+                      color: labelColor ?? AppColorHelper.fixedLightColor),
                   textAlign: TextAlign.center,
                 ),
               ),

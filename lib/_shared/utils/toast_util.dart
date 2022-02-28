@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:grocery_template/_core/status.dart';
 import 'package:grocery_template/_shared/utils/logger_utils.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
 import 'package:intl/intl.dart';
 
 void showToast(Status value, {Toast length = Toast.LENGTH_SHORT}) {
@@ -19,7 +19,6 @@ void showToast(Status value, {Toast length = Toast.LENGTH_SHORT}) {
         )
       : value.message ?? "";
 
-  //TODO set background color based on theme (for web also)
   Fluttertoast.showToast(
     msg: message,
     toastLength: length,
@@ -27,8 +26,8 @@ void showToast(Status value, {Toast length = Toast.LENGTH_SHORT}) {
     webPosition: "center",
     timeInSecForIosWeb: length == Toast.LENGTH_SHORT ? 1 : 5,
     fontSize: 16.0,
-    backgroundColor: ColorHelper.primaryBgColor,
-    textColor: ColorHelper.primaryTextColor,
+    backgroundColor: AppColorHelper.primaryBgColor,
+    textColor: AppColorHelper.primaryTextColor,
   );
 }
 

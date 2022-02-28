@@ -4,8 +4,8 @@ import 'package:grocery_template/_core/ui/spacing.dart';
 import 'package:grocery_template/app/modules/settings/presentation/widgets/setting_row_widget.dart';
 import 'package:grocery_template/app/ui/components/language_change_button.dart';
 import 'package:grocery_template/app/ui/controllers/theme_controller.dart';
-import 'package:grocery_template/app/ui/icon_helper.dart';
-import 'package:grocery_template/app/ui/styles.dart';
+import 'package:grocery_template/app/ui/app_icon_helper.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
 import 'package:grocery_template/generated/l10n.dart';
 
 class SettingsPage extends StatefulWidget {

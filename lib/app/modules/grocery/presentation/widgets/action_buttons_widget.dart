@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/icon_helper.dart';
-import 'package:grocery_template/app/ui/styles.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_icon_helper.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
 import 'package:grocery_template/generated/l10n.dart';
 
 class ActionButtonsWidget extends StatelessWidget {
@@ -23,7 +23,7 @@ class ActionButtonsWidget extends StatelessWidget {
         clickableToolTipIcon(
           Icons.remove_red_eye_outlined,
           size: IconSizes.s,
-          color: ColorHelper.rowActionIconColor,
+          color: AppColorHelper.rowActionIconColor,
           onPress: () => onAction('view'),
           padding: EdgeInsets.symmetric(vertical: Insets.xs),
           toolTip: S.of(context).view,
@@ -31,7 +31,7 @@ class ActionButtonsWidget extends StatelessWidget {
         if (showEditOption)
           clickableToolTipIcon(Icons.edit,
               size: IconSizes.s,
-              color: ColorHelper.rowActionIconColor,
+              color: AppColorHelper.rowActionIconColor,
               padding: EdgeInsets.only(
                   top: Insets.sX, bottom: Insets.sX, left: Insets.m),
               onPress: () => onAction('edit'),
@@ -40,7 +40,7 @@ class ActionButtonsWidget extends StatelessWidget {
           clickableToolTipIcon(
             Icons.delete,
             size: IconSizes.s,
-            color: ColorHelper.rowActionIconColor,
+            color: AppColorHelper.rowActionIconColor,
             onPress: () => onAction('delete'),
             padding: EdgeInsets.only(
                 top: Insets.sX, bottom: Insets.sX, left: Insets.m),

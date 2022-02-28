@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_template/_core/ui/spacing.dart';
-import 'package:grocery_template/app/ui/color_helper.dart';
-import 'package:grocery_template/app/ui/styles.dart';
+import 'package:grocery_template/app/ui/app_color_helper.dart';
+import 'package:grocery_template/app/ui/app_styles.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class LoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: CircularProgressIndicator(
-        valueColor: AlwaysStoppedAnimation<Color>(ColorHelper.accentColor),
+        valueColor: AlwaysStoppedAnimation<Color>(AppColorHelper.accentColor),
       ),
     );
   }
@@ -31,7 +31,7 @@ class LoadingWithTextWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(ColorHelper.accentColor),
+            valueColor: AlwaysStoppedAnimation<Color>(AppColorHelper.accentColor),
           ),
           VSpace(Insets.s),
           Text(text)
