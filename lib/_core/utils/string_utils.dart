@@ -1,18 +1,5 @@
 import 'package:flutter/material.dart';
 
-extension StringE on String {
-  String get initialsOrOneWord {
-    final names = split(" ");
-    String initials = "";
-    int numWords = names.length;
-    if (numWords == 1) return names[0].toLowerCase();
-
-    for (var i = 0; i < numWords; i++) {
-      if (names[i].isNotEmpty) initials += names[i][0].toLowerCase();
-    }
-    return initials;
-  }
-}
 
 class StringUtils {
   static bool isEmpty(String? s) {
@@ -28,7 +15,6 @@ class StringUtils {
         .hasMatch(value!);
   }
 
-  // Here it is!
   static Size measure(String text, TextStyle style,
       {int maxLines = 1, TextDirection direction = TextDirection.ltr}) {
     final TextPainter textPainter = TextPainter(

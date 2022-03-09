@@ -10,6 +10,8 @@ class Space extends StatelessWidget {
   Widget build(BuildContext context) => SizedBox(width: width, height: height);
 }
 
+/// A widget with [size] height and 0 width
+/// used to provide vertical spacing between widgets
 class VSpace extends StatelessWidget {
   final double size;
 
@@ -19,6 +21,8 @@ class VSpace extends StatelessWidget {
   Widget build(BuildContext context) => Space(0, size);
 }
 
+/// A widget with [size] width and 0 height
+/// used to provide horizontal spacing between widgets
 class HSpace extends StatelessWidget {
   final double size;
 

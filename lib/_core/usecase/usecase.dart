@@ -16,11 +16,3 @@ abstract class UseCase<Type, Params> {
 abstract class SaveUseCase<Params> {
   Future<Either<Failure, void>> call(Params params);
 }
-
-abstract class AutoSaveUseCase<Params> extends SaveUseCase<Params> {
-  Either<Failure, String> generateAutoSaveId();
-}
-
-abstract class SyncUseCase<Type, Params> {
-  Either<Failure, Type> call(Params params);
-}

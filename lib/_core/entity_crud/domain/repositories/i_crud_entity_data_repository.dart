@@ -5,6 +5,10 @@ import 'package:grocery_template/_core/response/i_list_response.dart';
 import 'package:grocery_template/_core/status.dart';
 import 'package:grocery_template/_shared/entity/i_shared_entity.dart';
 
+/// repository responsible for communicating with [ICRUDDataSource] sources
+/// for various CRUD operation.
+///
+/// It makes decision from which data source they have to use.
 abstract class ICRUDEntityDataRepository<T extends ISharedEntity> {
   final ICRUDDataSource<T> dataSource;
 
@@ -18,7 +22,7 @@ abstract class ICRUDEntityDataRepository<T extends ISharedEntity> {
 
   Future<Either<Failure, void>> updateItem(T item, {List<PathArgs>? pathArgs});
 
-  Future<Either<Failure, void>> removeItem(String id);
+  Future<Either<Failure, void>> deleteItem(String id);
 
   Future<Either<Failure, T?>> getSingle(String id, {List<PathArgs>? pathArgs});
 

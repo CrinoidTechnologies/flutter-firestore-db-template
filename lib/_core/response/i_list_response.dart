@@ -1,3 +1,4 @@
+///
 mixin IListResponse<T> {
   List<T> get getItems;
 
