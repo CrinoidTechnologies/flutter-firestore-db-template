@@ -8,7 +8,7 @@
 ### General Info
 
 ***
-# Firebase DB Template
+# Grocery Firestore Flutter Template
   This is a template project which serves the purpose of firestore database management, state management, route management, localisation management & app theme management.
   Fetching, Adding, updating & deleting of the entries from firestore database is implemented in this template with the help of firebase dependencies and crud firestore data source and repository impl classes.
   State management, route management & app theme management is also implemented with the use of "GetX" library.
