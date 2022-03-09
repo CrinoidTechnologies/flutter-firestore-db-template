@@ -1,3 +1,5 @@
+
+///
 class PathArgs {
   final String key;
   final dynamic value;
@@ -27,10 +29,10 @@ class QueryArgs {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is QueryArgs && (key == other.key /*&& value == other.value*/);
+      other is QueryArgs && (key == other.key);
 
   @override
-  int get hashCode => key.hashCode /*+ value.hashCode*/;
+  int get hashCode => key.hashCode;
 }
 
 class WhereInArgs {

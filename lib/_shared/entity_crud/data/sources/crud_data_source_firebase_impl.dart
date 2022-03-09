@@ -71,6 +71,31 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
   }
 
   @override
+  Future<T?> createItem(T item, {List<PathArgs>? pathArgs}) {
+    return rootCollection
+        .add(toMap(item))
+        .then((value) => getSingleByDocReference(value));
+  }
+
+  @override
+  Future<T?> updateItem(T item, {List<PathArgs>? pathArgs}) {
+    return rootCollection
+        .doc(item.uniqueId)
+        .set(toMap(item), SetOptions(merge: true))
+        .then((value) => item);
+  }
+
+  @override
+  Future<void> deleteItem(String id) {
+    return rootCollection.doc(id).delete();
+  }
+
+  @override
+  Future<T?> getItem(String id, {List<PathArgs>? pathArgs}) async {
+    return getSingleByDocReference(collectionBuilderWithList(pathArgs).doc(id));
+  }
+
+  @override
   String createItemId() {
     return rootCollection.doc().id;
   }
@@ -86,33 +111,14 @@ abstract class CRUDDataSourceFirestore<T extends ISharedEntity>
     }
   }
 
-  @override
-  Future<T?> updateItem(T item, {List<PathArgs>? pathArgs}) {
-    return rootCollection
-        .doc(item.uniqueId)
-        .set(toMap(item), SetOptions(merge: true))
-        .then((value) => item);
-  }
-
-  @override
-  Future<void> removeItem(String id) {
-    return rootCollection.doc(id).delete();
-  }
-
-  @override
-  Future<T?> getSingle(String id, {List<PathArgs>? pathArgs}) async {
-    return getSingleByDocReference(collectionBuilderWithList(pathArgs).doc(id));
-  }
-
   Future<T?> getSingleByDocReference(DocumentReference reference) async {
     var snap = await reference.get();
-    // print('snap.reference.path ${snap.reference.path}');
     if (!snap.exists) return null;
     return fromDS(snap.id, snap.data());
   }
 
   @override
-  Stream<T> streamSingle(String id) {
+  Stream<T> getItemStream(String id) {
     return rootCollection
         .doc(id)
         .snapshots()

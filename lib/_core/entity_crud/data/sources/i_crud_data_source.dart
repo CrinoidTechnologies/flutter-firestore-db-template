@@ -2,26 +2,40 @@ import 'package:grocery_template/_core/response/i_list_response.dart';
 
 import '../read_params.dart';
 
-/// Abstract class for
+/// Abstract class for basic CRUD operation on a Table/Collection.
+/// [T] is type of object that DB table is going to save.
+///
+/// [rootPath] is location of collection
 abstract class ICRUDDataSource<T> {
+  /// It is root path of table/collection where data will be stored
   final String rootPath;
 
-  ICRUDDataSource(this.rootPath) {
-    // print('ICRUDDataSource rootPath $rootPath');
-  }
+  ICRUDDataSource(this.rootPath);
 
+  /// updates [item] in collection if item is available
+  Future<T?> createItem(T item, {List<PathArgs>? pathArgs});
+
+  /// updates [item] in collection if item is available
+  Future<T?> updateItem(T item, {List<PathArgs>? pathArgs});
+
+  /// delete item with given [id] from collection/db
+  Future<void> deleteItem(String id);
+
+  /// fetches item referenced by [id]
+  /// null if no item is present
+  Future<T?> getItem(String id, {List<PathArgs>? pathArgs});
+
+  /// return and creates empty item with dynamic unique id in collection
   String createItemId();
 
+  /// creates item is id is null other it will try to update item
   Future<T?> createUpdateItem(T item);
 
-  Future<void> updateItem(T item, {List<PathArgs>? pathArgs});
+  /// give item stream referenced by [id]
+  /// It is useful when changes/updates are need to be monitored
+  Stream<T> getItemStream(String id);
 
-  Future<void> removeItem(String id);
-
-  Future<T?> getSingle(String id, {List<PathArgs>? pathArgs});
-
-  Stream<T> streamSingle(String id);
-
+  ///
   Stream<IListResponse<T>> streamList();
 
   Future<IListResponse<T>> getQueryList({ReadParams? readParams});

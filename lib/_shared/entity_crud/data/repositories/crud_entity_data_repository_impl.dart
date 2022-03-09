@@ -42,9 +42,9 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
   }
 
   @override
-  Future<Either<Failure, void>> removeItem(String id) async {
+  Future<Either<Failure, void>> deleteItem(String id) async {
     try {
-      final result = await dataSource.removeItem(id);
+      final result = await dataSource.deleteItem(id);
       return Right(result);
     } on Exception catch (e) {
       return Left(Failure.fromException(e));
@@ -55,7 +55,7 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
   Future<Either<Failure, T?>> getSingle(String id,
       {List<PathArgs>? pathArgs}) async {
     try {
-      final result = await dataSource.getSingle(id, pathArgs: pathArgs);
+      final result = await dataSource.getItem(id, pathArgs: pathArgs);
       return Right(result);
     } on Exception catch (e) {
       return Left(Failure.fromException(e));
@@ -65,7 +65,7 @@ class CRUDEntityDataRepository<T extends ISharedEntity>
   @override
   Stream<Either<Failure, T>> streamSingle(String id) async* {
     try {
-      yield* dataSource.streamSingle(id).map((event) => Right(event));
+      yield* dataSource.getItemStream(id).map((event) => Right(event));
     } on Exception catch (e) {
       yield Left(Failure.fromException(e));
     }

@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:firebase_storage/firebase_storage.dart';
 
+/// data source for handling file related operations
 abstract class ICrudFileSource {
   final String rootPath;
 

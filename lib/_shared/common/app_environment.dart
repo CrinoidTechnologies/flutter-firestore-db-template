@@ -1,14 +1,22 @@
+import 'package:grocery_template/_config/env_dev.dart';
 import 'package:grocery_template/app/ui/routes/app_pages.dart';
-import 'package:grocery_template/config/env_dev.dart';
 
+enum EnvironmentType { dev, prod }
+
+/// When project has multiple working environments like Development, Production
+/// Add environment specific parameter here
 abstract class Environment {
-  final String secret = '';
-  final String name = '';
-  final String sentryDSN = '';
-  final String firebaseFunctionLocation = 'us-central1';
+  EnvironmentType get environment;
 
-  final bool authGuardEnabled = true;
+  /// display environment name, can be used for debugging
+  String get name;
 
+  /// base cloud url
+  String get rootUrl;
+
+  /// initial starting page
+  /// can be useful in development phase
+  /// where it can be changed to speedup development
   String get initialRoute => Routes.root;
 
   ///Used for testing purposes
