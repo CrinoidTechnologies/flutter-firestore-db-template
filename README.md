@@ -7,10 +7,6 @@
 
 ### General Info
 
-# Running this project
-
-1. pub global run intl_utils:generate
-
 ***
 # Firebase DB Template
   This is a template project which serves the purpose of firestore database management, state management, route management, localisation management & app theme management.
@@ -94,6 +90,11 @@
     ├── l10n                                # supported language files
     └── main.dart                           # Entry point
 
+### Running this project
+
+1. Clone project in local repository.
+2. Run command flutter pub get 
+3. Run command flutter *pub global run intl_utils:generate.*
 
 ### Technologies
 ***
