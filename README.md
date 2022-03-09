@@ -56,12 +56,43 @@
   This project is build to Showcase following things implemented in this project.
 
   1. Firestore database management.
-  2. State management using GetX.
-  3. Route management using GetX.
-  4. Advance code structure.
-  5. Firestore datastore CRUD impl.
-  6. Localisation.
-  7. App Theme management using GetX.
+  2. Clean Architecture
+  3. State management using GetX.
+  4. Route management using GetX.
+  5. Advance code structure.
+  6. Firestore datastore CRUD impl.
+  7. Localisation.
+  8. App Theme management using GetX.
+
+### Folder Structure
+
+    .
+    ├── _config                             # files for enviornment related settings DEV, PROD 
+    ├── _core                               # core file independent of project/app  
+    ├── _shared                             # project dependent but app independent   
+    ├── app                                 # app-specific files modules based on clean architecture. 
+    │   ├── di                              # a centralized place to manage all dependencies in app
+    │   ├── extra                           # common files like enums, images, fields files
+    │   ├── modules                         # various functional modules/features of app
+    │   │   ├── grocery                     # gorcery specific files 
+    │   │   │   ├── data                    # responsible for data fetching from remote or local database  
+    │   │   │   │   ├── sources             # various data sources like local, remote to communicate with respetive source.
+    │   │   │   │   └── repositories        # Reponsible for managing data sources. It has actual implementation.
+    │   │   │   ├── domain                  # This is the central layer of the feature with all business logic.
+    │   │   │   │   ├── entities            # The model class which is mapped from data model class.
+    │   │   │   │   ├── repositories        # Rules of what needs to be implemented to obtain domain model.
+    │   │   │   │   └── usecases            # A unique use case for every logic inside a particular feature.
+    │   │   │   └── presentation            # UI layer for data showing and user interactions.
+    │   │   │       ├── controllers         # Unit tests
+    │   │   │       ├── pages               # representing a single screen of the feature
+    │   │   │       └── widgets             # Resuable widgets
+    │   │   └── dashboad                      
+    │   ├── ui                              # app theme, style guides, resusable ui components
+    │   ├── utils                           # app specific utils
+    │   └── widgets                         # common resusable ui components
+    ├── generated                           # automatic generated language files
+    ├── l10n                                # supported language files
+    └── main.dart                           # Entry point
 
 
 ### Technologies
